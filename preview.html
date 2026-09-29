@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Email your MP about SEND children's legal rights</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Tell your MP what the SEND reforms would mean for the children you know. It takes five minutes.">
+<meta property="og:title" content="Email your MP about SEND children's legal rights">
+<meta property="og:description" content="Tell your MP what the SEND reforms would mean for the children you know. It takes five minutes.">
+<meta property="og:url" content="https://sendrights.co.uk/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#412165; --teal:#4DB6A0; --yellow:#FFD14D;
+  --bg:#FFFFFF; --ink:#1E1A2B; --muted:#5E5872; --line:#E4E0EC; --field:#FBFAFD;
+  --plum-text:#412165; --teal-text:#2E8B77; --hl-ink:#412165;
+  --font:"Atkinson Hyperlegible", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1C1426; --ink:#F4F0FA; --muted:#BDB3CC; --line:#3A2D4C; --field:#251B32;
+    --plum-text:#CDB6EC; --teal-text:#6FD0BA;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1C1426; --ink:#F4F0FA; --muted:#BDB3CC; --line:#3A2D4C; --field:#251B32;
+  --plum-text:#CDB6EC; --teal-text:#6FD0BA;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.bars{height:14px;background:var(--plum);border-bottom:6px solid var(--teal)}
+main{max-width:660px;margin:0 auto;padding:36px 22px 64px}
+h1{font-size:clamp(2.3rem,8.5vw,3.6rem);line-height:1.02;letter-spacing:-.01em;margin:0 0 6px;font-weight:700}
+.hl{display:inline-block;background:var(--yellow);color:var(--hl-ink);padding:.06em .22em .1em;border-radius:8px;margin-left:-.22em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.lede{color:var(--muted);font-size:1.08rem;max-width:34em;margin:22px 0 0}
+.rule{height:4px;background:var(--teal);border:0;margin:30px 0}
+.count{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px}
+.count b{font-size:clamp(2.6rem,11vw,4rem);line-height:1;color:var(--plum-text);font-variant-numeric:tabular-nums}
+.count span{color:var(--muted);font-weight:700}
+.track{height:18px;border-radius:9px;background:var(--line);overflow:hidden;margin:14px 0 8px}
+.fill{height:100%;background:var(--yellow);border-radius:9px;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+.step{margin-top:44px}
+.step h2{display:flex;gap:14px;align-items:baseline;font-size:1.55rem;line-height:1.15;margin:0 0 12px;color:var(--plum-text)}
+.step h2 .n{flex:none;display:inline-grid;place-items:center;width:1.6em;height:1.6em;border-radius:50%;background:var(--plum);color:#fff;font-size:.8em}
+.step p.help{color:var(--muted);margin:0 0 14px;font-size:1rem}
+label{display:block;font-weight:700;font-size:.98rem;margin:16px 0 6px}
+label small{font-weight:400;color:var(--muted)}
+input,textarea{width:100%;font:inherit;font-size:1.02rem;color:var(--ink);background:var(--field);border:2px solid var(--line);border-radius:10px;padding:12px 14px}
+textarea{resize:vertical;line-height:1.5}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.results{list-style:none;margin:8px 0 0;padding:0;border-radius:10px;overflow:hidden;border:2px solid var(--line)}
+.results:empty{display:none}
+.results button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;gap:12px;width:100%;padding:12px 14px;cursor:pointer;border-top:1px solid var(--line);background:var(--field)}
+.results li:first-child button{border-top:0}
+.results button:hover,.results button:focus-visible{background:var(--line)}
+.results .mp{color:var(--muted);font-size:.9rem}
+.seat{margin-top:18px;padding:20px 22px;border-left:8px solid var(--yellow);background:var(--field);border-radius:0 12px 12px 0}
+.seat[hidden]{display:none}
+.seat h3{margin:0;font-size:1.45rem;line-height:1.2}
+.seat .who{margin:4px 0 14px;color:var(--muted)}
+.seat .big{font-size:2.4rem;font-weight:700;color:var(--plum-text);line-height:1;font-variant-numeric:tabular-nums}
+.seat .rank{margin:6px 0 0;font-size:1rem}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:1rem;padding:13px 20px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;line-height:1.2}
+.btn.primary{background:var(--plum);color:#fff}
+.btn.primary:hover{background:#2F1749}
+.btn.ghost{background:transparent;color:var(--plum-text);border:2px solid var(--plum-text)}
+.btn.ghost:hover{background:var(--line)}
+.note{font-size:.95rem;color:var(--muted);margin:10px 0 0}
+.toast{font-weight:700;color:var(--teal-text);min-height:1.5em;margin:8px 0 0;font-size:.98rem}
+.locked{opacity:.45;pointer-events:none;filter:saturate(.6)}
+.card-wrap{margin-top:12px;max-width:420px}
+.card-wrap img{width:100%;height:auto;border-radius:12px;display:block;border:1px solid var(--line)}
+footer{margin-top:56px;padding-top:22px;border-top:4px solid var(--teal)}
+footer p{margin:0 0 6px}
+footer .closes{font-size:1.6rem;font-weight:700;color:var(--plum-text)}
+footer a{color:var(--ink);font-weight:700}
+.small{font-size:.9rem;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion: reduce){.fill{transition:none}}
+
+.opts{display:grid;gap:8px;margin-top:6px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--field);cursor:pointer;font-weight:400;margin:0}
+.opt:hover{border-color:var(--plum-text)}
+.opt input{width:22px;height:22px;flex:none;margin:2px 0 0;accent-color:var(--plum)}
+.opt:has(input:checked){border-color:var(--plum-text);box-shadow:inset 6px 0 0 var(--yellow)}
+.opt b{display:block;font-size:1rem}
+.opt span{display:block;color:var(--muted);font-size:.92rem;line-height:1.4;margin-top:2px}
+.tip{background:var(--field);border-left:6px solid var(--teal);padding:10px 14px;border-radius:0 10px 10px 0;font-size:.95rem;color:var(--muted);margin:14px 0 0}
+.stat{font-size:1.25rem;font-weight:700;color:var(--plum-text);margin:0}
+.pcrow{display:flex;gap:10px;flex-wrap:wrap}
+.pcrow input{flex:1 1 180px;text-transform:uppercase}
+details{margin-top:14px}
+summary{cursor:pointer;font-weight:700;color:var(--plum-text);padding:6px 0}
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"></div>
+<main>
+  <header>
+    <h1>SEND children need better support.<br><span class="hl">Get your MP in the room.</span></h1>
+    <p class="lede" id="lede"></p>
+    <p class="stat" id="stat" hidden></p>
+  </header>
+
+  <hr class="rule">
+
+  <section class="step" aria-labelledby="s1" style="margin-top:0">
+    <h2 id="s1"><span class="n">1</span>Find your MP</h2>
+    <label for="pc">Your postcode</label>
+    <div class="pcrow">
+      <input id="pc" autocomplete="postal-code" inputmode="text" placeholder="For example, CW12 1AA" enterkeyhint="search">
+      <button class="btn primary" id="pcGo" type="button">Find my MP</button>
+    </div>
+    <p class="toast" id="pcMsg" role="status"></p>
+    <details id="byName">
+      <summary>Or search by constituency or MP name</summary>
+      <label for="q">Constituency or MP</label>
+      <input id="q" type="search" autocomplete="off" placeholder="For example, Congleton" aria-controls="results">
+      <ul class="results" id="results" role="list"></ul>
+    </details>
+    <div class="seat" id="seat" hidden aria-live="polite">
+      <h3 id="seatName"></h3>
+      <p class="who" id="seatMp" style="margin-bottom:0"></p>
+      <p class="who" id="seatEmail" style="margin:6px 0 0"></p>
+      <div class="big" id="seatCount" hidden style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <section class="step locked" id="step2" aria-labelledby="s2">
+    <h2 id="s2"><span class="n">2</span>Who are you writing as?</h2>
+    <p class="help">Pick the one closest to you. It sets how your email opens.</p>
+    <div class="opts" id="personas" role="radiogroup" aria-labelledby="s2"></div>
+    <p class="tip" id="youngTip" hidden>MPs represent everyone in their area, whatever their age, and they want to hear from young people. If you are under 18, it is a good idea to show a parent, carer or teacher your email before you send it.</p>
+    <p class="tip" id="staffTip" hidden>Write as a constituent, from your own email address, not on behalf of your school or employer.</p>
+  </section>
+
+  <section class="step locked" id="step3" aria-labelledby="s3">
+    <h2 id="s3"><span class="n">3</span>What worries you most?</h2>
+    <p class="help">We have ticked the ones people in your position raise most. Change them to suit you. Two or three strong points land better than ten.</p>
+    <div class="opts" id="concerns"></div>
+  </section>
+
+  <section class="step locked" id="step4" aria-labelledby="s4">
+    <h2 id="s4"><span class="n">4</span>Add your details</h2>
+    <p class="help">MPs only act for people who live in their constituency. Your full address shows them you do. Nothing you type here is saved or sent anywhere by this page.</p>
+    <label for="name">Your name</label>
+    <input id="name" autocomplete="name">
+    <label for="addr">Your address and postcode</label>
+    <textarea id="addr" rows="3" autocomplete="street-address"></textarea>
+    <label class="opt" style="margin-top:18px"><input type="checkbox" id="before"><div><b>I have already contacted my MP about this</b><span>Add your reference number so their office can link your messages.</span></div></label>
+    <div id="beforeBox" hidden>
+      <label for="ref">Reference or case number <small>(optional, from their reply)</small></label>
+      <input id="ref" autocomplete="off" placeholder="For example, SR12345">
+      <label for="when">When did you contact them? <small>(optional)</small></label>
+      <input id="when" autocomplete="off" placeholder="For example, in September">
+      <fieldset style="border:0;padding:0;margin:16px 0 0">
+        <legend style="font-weight:700;font-size:.98rem;margin-bottom:6px">Did they reply?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="replied" value="yes" checked><div><b>Yes, they replied</b></div></label>
+          <label class="opt"><input type="radio" name="replied" value="no"><div><b>No reply yet</b></div></label>
+        </div>
+      </fieldset>
+    </div>
+    <label for="story">In your own words <small>(optional, but this is the part MPs remember)</small></label>
+    <textarea id="story" rows="4" placeholder="A sentence or two about your child, your class, or the families you work with."></textarea>
+  </section>
+
+  <section class="step locked" id="step5" aria-labelledby="s5">
+    <h2 id="s5"><span class="n">5</span>Send your email</h2>
+    <p class="help">Read it through and change anything you like. It is your email.</p>
+    <label for="subject">Subject</label>
+    <input id="subject">
+    <label for="body">Email</label>
+    <textarea id="body" rows="22"></textarea>
+    <div class="btns">
+      <button class="btn primary" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" id="mailto" href="#">Open in my email app</a>
+      <button class="btn ghost" id="reset" type="button">Start the email again</button>
+    </div>
+    <p class="toast" id="toast" role="status"></p>
+    <p class="note" id="sendNote">Find your MP's email address on their <a id="mpLink" href="https://members.parliament.uk/FindYourMP" target="_blank" rel="noopener">Parliament profile</a>. Or paste your email into <a href="https://www.writetothem.com/" target="_blank" rel="noopener">WriteToThem</a>, which sends it for you using your postcode.</p>
+  </section>
+
+  <section class="step locked" id="step6" aria-labelledby="s6">
+    <h2 id="s6"><span class="n">6</span>Ask someone else to do it too</h2>
+    <p class="help">Save this card and post it in one group you are already in. The web address is on the card.</p>
+    <div class="card-wrap"><img id="card" alt=""></div>
+    <div class="btns"><button class="btn primary" id="save" type="button" hidden>Save the card</button></div>
+    <p class="note" id="saveHint">On a phone, press and hold the card to save it. On a computer, right click and save the image.</p>
+  </section>
+
+  <footer>
+    <p class="closes">One email. Five minutes.</p>
+    <p class="small">The petition "Protect legal right to support for children with SEND" closed on 14 October. <a href="https://petition.parliament.uk/petitions/764268" target="_blank" rel="noopener">See it on the Parliament website</a>.</p>
+  </footer>
+</main>
+
+<script>
+/* ---------- Backfill here once final figures are in ---------- */
+const FINAL = {
+  total: null,     // e.g. 104321. Leave null to hide all figures.
+  debate: null     // e.g. "Monday 9 November". Leave null if no date yet.
+};
+const RAW = "Aldershot|Alex Baker MP||E14001063\nAldridge-Brownhills|Rt Hon Wendy Morton MP||E14001064\nAltrincham and Sale West|Mr Connor Rand MP||E14001065\nAmber Valley|Linsey Farnsworth MP||E14001066\nArundel and South Downs|Andrew Griffith MP||E14001067\nAshfield|Lee Anderson MP||E14001068\nAshford|Sojan Joseph MP||E14001069\nAshton-under-Lyne|Rt Hon Angela Rayner MP||E14001070\nAylesbury|Laura Kyrke-Smith MP||E14001071\nBanbury|Sean Woodcock MP||E14001072\nBarking|Nesil Caliskan MP||E14001073\nBarnsley North|Rt Hon Dan Jarvis MP||E14001074\nBarnsley South|Stephanie Peacock MP||E14001075\nBarrow and Furness|Michelle Scrogham MP||E14001076\nBasildon and Billericay|Rt Hon Richard Holden MP||E14001077\nBasingstoke|Luke Murphy MP||E14001078\nBassetlaw|Jo White MP||E14001079\nBath|Wera Hobhouse MP||E14001080\nBattersea|Marsha De Cordova MP||E14001081\nBeaconsfield|Joy Morrissey MP||E14001082\nBeckenham and Penge|Liam Conlon MP||E14001083\nBedford|Mohammad Yasin MP||E14001084\nBermondsey and Old Southwark|Neil Coyle MP||E14001085\nBethnal Green and Stepney|Rushanara Ali MP||E14001086\nBeverley and Holderness|Rt Hon Graham Stuart MP||E14001087\nBexhill and Battle|Dr Kieran Mullan MP||E14001088\nBexleyheath and Crayford|Daniel Francis MP||E14001089\nBicester and Woodstock|Calum Miller MP||E14001090\nBirkenhead|Alison McGovern MP||E14001091\nBirmingham Edgbaston|Preet Kaur Gill MP||E14001092\nBirmingham Erdington|Paulette Hamilton MP||E14001093\nBirmingham Hall Green and Moseley|Tahir Ali MP||E14001094\nBirmingham Hodge Hill and Solihull North|Rt Hon Liam Byrne MP||E14001095\nBirmingham Ladywood|Rt Hon Shabana Mahmood KC MP||E14001096\nBirmingham Northfield|Laurence Turner MP||E14001097\nBirmingham Perry Barr|Ayoub Khan MP||E14001098\nBirmingham Selly Oak|Al Carns MP||E14001099\nBirmingham Yardley|Jess Phillips MP||E14001100\nBishop Auckland|Dr Sam Rushworth MP||E14001101\nBlackburn|Mr Adnan Hussain MP||E14001102\nBlackley and Middleton South|Graham Stringer MP||E14001103\nBlackpool North and Fleetwood|Lorraine Beavers MP||E14001104\nBlackpool South|Chris Webb MP||E14001105\nBlaydon and Consett|Liz Twist MP||E14001106\nBlyth and Ashington|Ian Lavery MP||E14001107\nBognor Regis and Littlehampton|Alison Griffiths MP||E14001108\nBolsover|Natalie Fleet MP||E14001109\nBolton North East|Kirith Entwistle MP||E14001110\nBolton South and Walkden|Yasmin Qureshi MP||E14001111\nBolton West|Phil Brickell MP||E14001112\nBootle|Peter Dowd MP||E14001113\nBoston and Skegness|Richard Tice MP||E14001114\nBournemouth East|Tom Hayes MP||E14001115\nBournemouth West|Jessica Toale MP||E14001116\nBracknell|Peter Swallow MP||E14001117\nBradford East|Imran Hussain MP||E14001118\nBradford South|Judith Cummins MP||E14001119\nBradford West|Naz Shah MP||E14001120\nBraintree|Rt Hon Sir James Cleverly MP||E14001121\nBrent East|Dawn Butler MP||E14001122\nBrent West|Barry Gardiner MP||E14001123\nBrentford and Isleworth|Ruth Cadbury MP||E14001124\nBrentwood and Ongar|Alex Burghart MP||E14001125\nBridgwater|Sir Ashley Fox MP||E14001126\nBridlington and The Wolds|Charlie Dewhirst MP||E14001127\nBrigg and Immingham|Martin Vickers MP||E14001128\nBrighton Kemptown and Peacehaven|Chris Ward MP||E14001129\nBrighton Pavilion|Siân Berry MP||E14001130\nBristol Central|Carla Denyer MP||E14001131\nBristol East|Kerry McCarthy MP||E14001132\nBristol North East|Damien Egan MP||E14001133\nBristol North West|Rt Hon Darren Jones MP||E14001134\nBristol South|Karin Smyth MP||E14001135\nBroadland and Fakenham|Jerome Mayhew MP||E14001136\nBromley and Biggin Hill|Peter Fortune MP||E14001137\nBromsgrove|Bradley Thomas MP||E14001138\nBroxbourne|Lewis Cocking MP||E14001139\nBroxtowe|Juliet Campbell MP||E14001140\nBuckingham and Bletchley|Callum Anderson MP||E14001141\nBurnley|Oliver Ryan MP||E14001142\nBurton and Uttoxeter|Jacob Collier MP||E14001143\nBury North|Mr James Frith MP||E14001144\nBury South|Christian Wakeford MP||E14001145\nBury St Edmunds and Stowmarket|Dr Peter Prinsley MP||E14001146\nCalder Valley|Josh Fenton-Glynn MP||E14001147\nCamborne and Redruth|Perran Moon MP||E14001148\nCambridge|Daniel Zeichner MP||E14001149\nCannock Chase|Josh Newbury MP||E14001150\nCanterbury|Rosie Duffield MP||E14001151\nCarlisle|Ms Julie Minns MP||E14001152\nCarshalton and Wallington|Bobby Dean MP||E14001153\nCastle Point|Rebecca Harris MP||E14001154\nCentral Devon|Rt Hon Sir Mel Stride MP||E14001155\nCentral Suffolk and North Ipswich|Patrick Spencer MP||E14001156\nChatham and Aylesford|Tristan Osborne MP||E14001157\nCheadle|Tom Morrison MP||E14001158\nChelmsford|Marie Goldman MP||E14001159\nChelsea and Fulham|Ben Coleman MP||E14001160\nCheltenham|Max Wilkinson MP||E14001161\nChesham and Amersham|Sarah Green MP||E14001162\nChester North and Neston|Samantha Dixon MP||E14001163\nChester South and Eddisbury|Aphra Brandreth MP||E14001164\nChesterfield|Mr Toby Perkins MP||E14001165\nChichester|Jess Brown-Fuller MP||E14001166\nChingford and Woodford Green|Rt Hon Sir Iain Duncan Smith MP||E14001167\nChippenham|Sarah Gibson MP||E14001168\nChipping Barnet|Dan Tomlinson MP||E14001169\nChorley|Rt Hon Sir Lindsay Hoyle MP||E14001170\nChristchurch|Sir Christopher Chope MP||E14001171\nCities of London and Westminster|Rachel Blake MP||E14001172\nCity of Durham|Mary Kelly Foy MP||E14001173\nClacton|Nigel Farage MP||E14001174\nClapham and Brixton Hill|Bell Ribeiro-Addy MP||E14001175\nColchester|Pam Cox MP||E14001176\nColne Valley|Paul Davies MP||E14001177\nCongleton|Sarah Russell MP||E14001178\nCorby and East Northamptonshire|Lee Barron MP||E14001179\nCoventry East|Mary Creagh MP||E14001180\nCoventry North West|Taiwo Owatemi MP||E14001181\nCoventry South|Zarah Sultana MP||E14001182\nCramlington and Killingworth|Emma Foody MP||E14001183\nCrawley|Peter Lamb MP||E14001184\nCrewe and Nantwich|Connor Naismith MP||E14001185\nCroydon East|Natasha Irons MP||E14001186\nCroydon South|Rt Hon Chris Philp MP||E14001187\nCroydon West|Sarah Jones MP||E14001188\nDagenham and Rainham|Margaret Mullane MP||E14001189\nDarlington|Lola McEvoy MP||E14001190\nDartford|Jim Dickson MP||E14001191\nDaventry|Rt Hon Stuart Andrew MP||E14001192\nDerby North|Catherine Atkinson MP||E14001193\nDerby South|Baggy Shanker MP||E14001194\nDerbyshire Dales|John Whitby MP||E14001195\nDewsbury and Batley|Iqbal Mohamed MP||E14001196\nDidcot and Wantage|Olly Glover MP||E14001197\nDoncaster Central|Sally Jameson MP||E14001198\nDoncaster East and the Isle of Axholme|Lee Pitcher MP||E14001199\nDoncaster North|Rt Hon Ed Miliband MP||E14001200\nDorking and Horley|Chris Coghlan MP||E14001201\nDover and Deal|Mike Tapp MP||E14001202\nDroitwich and Evesham|Nigel Huddleston MP||E14001203\nDudley|Sonia Kumar MP||E14001204\nDulwich and West Norwood|Helen Hayes MP||E14001205\nDunstable and Leighton Buzzard|Alex Mayer MP||E14001206\nEaling Central and Acton|Dr Rupa Huq MP||E14001207\nEaling North|Rt Hon James Murray MP||E14001208\nEaling Southall|Deirdre Costigan MP||E14001209\nEarley and Woodley|Yuan Yang MP||E14001210\nEasington|Grahame Morris MP||E14001211\nEast Grinstead and Uckfield|Mims Davies MP||E14001212\nEast Ham|Rt Hon Sir Stephen Timms MP||E14001213\nEast Hampshire|Rt Hon Damian Hinds MP||E14001214\nEast Surrey|Rt Hon Claire Coutinho MP||E14001215\nEast Thanet|Ms Polly Billington MP||E14001216\nEast Wiltshire|Danny Kruger MP||E14001217\nEast Worthing and Shoreham|Tom Rutland MP||E14001218\nEastbourne|Josh Babarinde MP||E14001219\nEastleigh|Liz Jarvis MP||E14001220\nEdmonton and Winchmore Hill|Kate Osamor MP||E14001221\nEllesmere Port and Bromborough|Justin Madders MP||E14001222\nEltham and Chislehurst|Clive Efford MP||E14001223\nEly and East Cambridgeshire|Charlotte Cane MP||E14001224\nEnfield North|Feryal Clark MP||E14001225\nEpping Forest|Dr Neil Hudson MP||E14001226\nEpsom and Ewell|Helen Maguire MP||E14001227\nErewash|Adam Thompson MP||E14001228\nErith and Thamesmead|Ms Abena Oppong-Asare MP||E14001229\nEsher and Walton|Monica Harding MP||E14001230\nExeter|Steve Race MP||E14001231\nExmouth and Exeter East|David Reed MP||E14001232\nFareham and Waterlooville|Rt Hon Suella Braverman KC MP||E14001233\nFarnham and Bordon|Gregory Stafford MP||E14001234\nFaversham and Mid Kent|Helen Whately MP||E14001235\nFeltham and Heston|Seema Malhotra MP||E14001236\nFilton and Bradley Stoke|Claire Hazelgrove MP||E14001237\nFinchley and Golders Green|Sarah Sackman MP||E14001238\nFolkestone and Hythe|Tony Vaughan KC MP||E14001239\nForest of Dean|Matt Bishop MP||E14001240\nFrome and East Somerset|Anna Sabine MP||E14001241\nFylde|Mr Andrew Snowden MP||E14001242\nGainsborough|Rt Hon Sir Edward Leigh MP||E14001243\nGateshead Central and Whickham|Mark Ferguson MP||E14001244\nGedling|Michael Payne MP||E14001245\nGillingham and Rainham|Naushabah Khan MP||E14001246\nGlastonbury and Somerton|Sarah Dyke MP||E14001247\nGloucester|Alex McIntyre MP||E14001248\nGodalming and Ash|Rt Hon Sir Jeremy Hunt MP||E14001249\nGoole and Pocklington|Rt Hon David Davis MP||E14001250\nGorton and Denton|Hannah Spencer MP||E14001251\nGosport|Dame Caroline Dinenage MP||E14001252\nGrantham and Bourne|Gareth Davies MP||E14001253\nGravesham|Dr Lauren Sullivan MP||E14001254\nGreat Grimsby and Cleethorpes|Melanie Onn MP||E14001255\nGreat Yarmouth|Rupert Lowe MP||E14001256\nGreenwich and Woolwich|Rt Hon Matthew Pennycook MP||E14001257\nGuildford|Zöe Franklin MP||E14001258\nHackney North and Stoke Newington|Rt Hon Diane Abbott MP||E14001259\nHackney South and Shoreditch|Dame Meg Hillier MP||E14001260\nHalesowen|Alex Ballinger MP||E14001261\nHalifax|Kate Dearden MP||E14001262\nHamble Valley|Paul Holmes MP||E14001263\nHammersmith and Chiswick|Andy Slaughter MP||E14001264\nHampstead and Highgate|Tulip Siddiq MP||E14001265\nHarborough, Oadby and Wigston|Neil O'Brien MP||E14001266\nHarlow|Chris Vince MP||E14001267\nHarpenden and Berkhamsted|Victoria Collins MP||E14001268\nHarrogate and Knaresborough|Tom Gordon MP||E14001269\nHarrow East|Bob Blackman MP||E14001270\nHarrow West|Gareth Thomas MP||E14001271\nHartlepool|Mr Jonathan Brash MP||E14001272\nHarwich and North Essex|Sir Bernard Jenkin MP||E14001273\nHastings and Rye|Helena Dollimore MP||E14001274\nHavant|Alan Mak MP||E14001275\nHayes and Harlington|Rt Hon John McDonnell MP||E14001276\nHazel Grove|Lisa Smart MP||E14001277\nHemel Hempstead|David Taylor MP||E14001278\nHendon|David Pinto-Duschinsky MP||E14001279\nHenley and Thame|Freddie van Mierlo MP||E14001280\nHereford and South Herefordshire|Rt Hon Jesse Norman MP||E14001281\nHerne Bay and Sandwich|Rt Hon Sir Roger Gale MP||E14001282\nHertford and Stortford|Josh Dean MP||E14001283\nHertsmere|Rt Hon Sir Oliver Dowden MP||E14001284\nHexham|Joe Morris MP||E14001285\nHeywood and Middleton North|Mrs Elsie Blundell MP||E14001286\nHigh Peak|Jon Pearce MP||E14001287\nHinckley and Bosworth|Dr Luke Evans MP||E14001288\nHitchin|Alistair Strathern MP||E14001289\nHolborn and St Pancras|||E14001290\nHoniton and Sidmouth|Richard Foord MP||E14001291\nHornchurch and Upminster|Julia Lopez MP||E14001292\nHornsey and Friern Barnet|Catherine West MP||E14001293\nHorsham|John Milne MP||E14001294\nHoughton and Sunderland South|Rt Hon Bridget Phillipson MP||E14001295\nHove and Portslade|Rt Hon Peter Kyle MP||E14001296\nHuddersfield|Harpreet Uppal MP||E14001297\nHuntingdon|Ben Obese-Jecty MP||E14001298\nHyndburn|Sarah Smith MP||E14001299\nIlford North|Rt Hon Wes Streeting MP||E14001300\nIlford South|Jas Athwal MP||E14001301\nIpswich|Jack Abbott MP||E14001302\nIsle of Wight East|Joe Robertson MP||E14001303\nIsle of Wight West|Richard Quigley MP||E14001304\nIslington North|Rt Hon Jeremy Corbyn MP||E14001305\nIslington South and Finsbury|Rt Hon Emily Thornberry MP||E14001306\nJarrow and Gateshead East|Kate Osborne MP||E14001307\nKeighley and Ilkley|Robbie Moore MP||E14001308\nKenilworth and Southam|Rt Hon Sir Jeremy Wright KC MP||E14001309\nKensington and Bayswater|Joe Powell MP||E14001310\nKettering|Rosie Wrighting MP||E14001311\nKingston and Surbiton|Rt Hon Ed Davey MP||E14001312\nKingston upon Hull East|Karl Turner MP||E14001313\nKingston upon Hull North and Cottingham|Rt Hon Dame Diana Johnson MP||E14001314\nKingston upon Hull West and Haltemprice|Emma Hardy MP||E14001315\nKingswinford and South Staffordshire|Mike Wood MP||E14001316\nKnowsley|Rt Hon Anneliese Midgley MP||E14001317\nLancaster and Wyre|Cat Smith MP||E14001318\nLeeds Central and Headingley|Alex Sobel MP||E14001319\nLeeds East|Richard Burgon MP||E14001320\nLeeds North East|Fabian Hamilton MP||E14001321\nLeeds North West|Katie White MP||E14001322\nLeeds South|Rt Hon Hilary Benn MP||E14001323\nLeeds South West and Morley|Mark Sewards MP||E14001324\nLeeds West and Pudsey|Rt Hon Rachel Reeves MP||E14001325\nLeicester East|Shivani Raja MP||E14001326\nLeicester South|Shockat Adam MP||E14001327\nLeicester West|Rt Hon Liz Kendall MP||E14001328\nLeigh and Atherton|Jo Platt MP||E14001329\nLewes|James MacCleary MP||E14001330\nLewisham East|Janet Daby MP||E14001331\nLewisham North|Vicky Foxcroft MP||E14001332\nLewisham West and East Dulwich|Rt Hon Ellie Reeves KC MP||E14001333\nLeyton and Wanstead|Mr Calvin Bailey MP||E14001334\nLichfield|Dave Robertson MP||E14001335\nLincoln|Rt Hon Hamish Falconer MP||E14001336\nLiverpool Garston|Rt Hon Maria Eagle MP||E14001337\nLiverpool Riverside|Kim Johnson MP||E14001338\nLiverpool Walton|Dan Carden MP||E14001339\nLiverpool Wavertree|Paula Barker MP||E14001340\nLiverpool West Derby|Ian Byrne MP||E14001341\nLoughborough|Dr Jeevun Sandher MP||E14001342\nLouth and Horncastle|Rt Hon Victoria Atkins MP||E14001343\nLowestoft|Jess Asato MP||E14001344\nLuton North|Sarah Owen MP||E14001345\nLuton South and South Bedfordshire|Rachel Hopkins MP||E14001346\nMacclesfield|Tim Roca MP||E14001347\nMaidenhead|Mr Joshua Reynolds MP||E14001348\nMaidstone and Malling|Helen Grant MP||E14001349\nMakerfield|Rt Hon Andy Burnham||E14001350\nMaldon|Rt Hon Sir John Whittingdale MP||E14001351\nManchester Central|Rt Hon Lucy Powell MP||E14001352\nManchester Rusholme|Afzal Khan MP||E14001353\nManchester Withington|Jeff Smith MP||E14001354\nMansfield|Steve Yemm MP||E14001355\nMelksham and Devizes|Brian Mathew MP||E14001356\nMelton and Syston|Rt Hon Edward Argar MP||E14001357\nMeriden and Solihull East|Saqib Bhatti MP||E14001358\nMid Bedfordshire|Blake Stephenson MP||E14001359\nMid Buckinghamshire|Greg Smith MP||E14001360\nMid Cheshire|Andrew Cooper MP||E14001361\nMid Derbyshire|Jonathan Davies MP||E14001362\nMid Dorset and North Poole|Vikki Slade MP||E14001363\nMid Leicestershire|Mr Peter Bedford MP||E14001364\nMid Norfolk|George Freeman MP||E14001365\nMid Sussex|Alison Bennett MP||E14001366\nMiddlesbrough and Thornaby East|Andy McDonald MP||E14001367\nMiddlesbrough South and East Cleveland|Luke Myer MP||E14001368\nMilton Keynes Central|Emily Darlington MP||E14001369\nMilton Keynes North|Chris Curtis MP||E14001370\nMitcham and Morden|Dame Siobhain McDonagh MP||E14001371\nMorecambe and Lunesdale|Lizzi Collinge MP||E14001372\nNew Forest East|Rt Hon Sir Julian Lewis MP||E14001373\nNew Forest West|Rt Hon Sir Desmond Swayne MP||E14001374\nNewark|Rt Hon Robert Jenrick MP||E14001375\nNewbury|Mr Lee Dillon MP||E14001376\nNewcastle upon Tyne Central and West|Dame Chi Onwurah MP||E14001377\nNewcastle upon Tyne East and Wallsend|Mary Glindon MP||E14001378\nNewcastle upon Tyne North|Catherine McKinnell MP||E14001379\nNewcastle-under-Lyme|Adam Jogee MP||E14001380\nNewton Abbot|Martin Wrigley MP||E14001381\nNewton Aycliffe and Spennymoor|Alan Strickland MP||E14001382\nNormanton and Hemsworth|Jon Trickett MP||E14001383\nNorth Bedfordshire|Richard Fuller MP||E14001384\nNorth Cornwall|Ben Maguire MP||E14001385\nNorth Cotswolds|Sir Geoffrey Clifton-Brown MP||E14001386\nNorth Devon|Ian Roome MP||E14001387\nNorth Dorset|Simon Hoare MP||E14001388\nNorth Durham|Luke Akehurst MP||E14001389\nNorth East Cambridgeshire|Rt Hon Steve Barclay MP||E14001390\nNorth East Derbyshire|Louise Sandher-Jones MP||E14001391\nNorth East Hampshire|Alex Brewer MP||E14001392\nNorth East Hertfordshire|Chris Hinchliff MP||E14001393\nNorth East Somerset and Hanham|Dan Norris MP||E14001394\nNorth Herefordshire|Dr Ellie Chowns MP||E14001395\nNorth Norfolk|Steff Aquarone MP||E14001396\nNorth Northumberland|David Smith MP||E14001397\nNorth Shropshire|Helen Morgan MP||E14001398\nNorth Somerset|Sadik Al-Hassan MP||E14001399\nNorth Warwickshire and Bedworth|Rachel Taylor MP||E14001400\nNorth West Cambridgeshire|Sam Carling MP||E14001401\nNorth West Essex|Rt Hon Kemi Badenoch MP||E14001402\nNorth West Hampshire|Rt Hon Kit Malthouse MP||E14001403\nNorth West Leicestershire|Amanda Hack MP||E14001404\nNorth West Norfolk|James Wild MP||E14001405\nNorthampton North|Rt Hon Lucy Rigby KC MP||E14001406\nNorthampton South|Mike Reader MP||E14001407\nNorwich North|Alice Macdonald MP||E14001408\nNorwich South|Clive Lewis MP||E14001409\nNottingham East|Nadia Whittome MP||E14001410\nNottingham North and Kimberley|Rt Hon Alex Norris MP||E14001411\nNottingham South|Lilian Greenwood MP||E14001412\nNuneaton|Jodie Gosling MP||E14001413\nOld Bexley and Sidcup|Mr Louie French MP||E14001414\nOldham East and Saddleworth|Debbie Abrahams MP||E14001415\nOldham West, Chadderton and Royton|Jim McMahon MP||E14001416\nOrpington|Gareth Bacon MP||E14001417\nOssett and Denby Dale|Jade Botterill MP||E14001418\nOxford East|Rt Hon Anneliese Dodds MP||E14001419\nOxford West and Abingdon|Layla Moran MP||E14001420\nPeckham|Rt Hon Miatta Fahnbulleh MP||E14001421\nPendle and Clitheroe|Jonathan Hinder MP||E14001422\nPenistone and Stocksbridge|Dr Marie Tidball MP||E14001423\nPenrith and Solway|Markus Campbell-Savours MP||E14001424\nPeterborough|Andrew Pakes MP||E14001425\nPlymouth Moor View|Fred Thomas MP||E14001426\nPlymouth Sutton and Devonport|Luke Pollard MP||E14001427\nPontefract, Castleford and Knottingley|Rt Hon Yvette Cooper MP||E14001428\nPoole|Neil Duncan-Jordan MP||E14001429\nPoplar and Limehouse|Apsana Begum MP||E14001430\nPortsmouth North|Amanda Martin MP||E14001431\nPortsmouth South|Stephen Morgan MP||E14001432\nPreston|Sir Mark Hendrick MP||E14001433\nPutney|Fleur Anderson MP||E14001434\nQueen's Park and Maida Vale|Georgia Gould MP||E14001435\nRawmarsh and Conisbrough|Rt Hon John Healey MP||E14001436\nRayleigh and Wickford|Rt Hon Mark Francois MP||E14001437\nReading Central|Matt Rodda MP||E14001438\nReading West and Mid Berkshire|Olivia Bailey MP||E14001439\nRedcar|Rt Hon Anna Turley MP||E14001440\nRedditch|Chris Bloore MP||E14001441\nReigate|Rebecca Paul MP||E14001442\nRibble Valley|Maya Ellis MP||E14001443\nRichmond and Northallerton|Rt Hon Rishi Sunak MP||E14001444\nRichmond Park|Sarah Olney MP||E14001445\nRochdale|Paul Waugh MP||E14001446\nRochester and Strood|Lauren Edwards MP||E14001447\nRomford|Andrew Rosindell MP||E14001448\nRomsey and Southampton North|Rt Hon Caroline Nokes MP||E14001449\nRossendale and Darwen|Andy MacNae MP||E14001450\nRother Valley|Jake Richards MP||E14001451\nRotherham|Sarah Champion MP||E14001452\nRugby|John Slinger MP||E14001453\nRuislip, Northwood and Pinner|David Simmonds MP||E14001454\nRuncorn and Helsby|Sarah Pochin MP||E14001455\nRunnymede and Weybridge|Dr Ben Spencer MP||E14001456\nRushcliffe|James Naish MP||E14001457\nRutland and Stamford|Alicia Kearns MP||E14001458\nSalford|Rebecca Long Bailey MP||E14001459\nSalisbury|Rt Hon John Glen MP||E14001460\nScarborough and Whitby|Alison Hume MP||E14001461\nScunthorpe|Sir Nicholas Dakin MP||E14001462\nSefton Central|Bill Esterson MP||E14001463\nSelby|Keir Mather MP||E14001464\nSevenoaks|Rt Hon Laura Trott MP||E14001465\nSheffield Brightside and Hillsborough|Gill Furniss MP||E14001466\nSheffield Central|Abtisam Mohamed MP||E14001467\nSheffield Hallam|Olivia Blake MP||E14001468\nSheffield Heeley|Rt Hon Louise Haigh MP||E14001469\nSheffield South East|Mr Clive Betts MP||E14001470\nSherwood Forest|Michelle Welsh MP||E14001471\nShipley|Anna Dixon MP||E14001472\nShrewsbury|Julia Buckley MP||E14001473\nSittingbourne and Sheppey|Kevin McKenna MP||E14001474\nSkipton and Ripon|Rt Hon Sir Julian Smith MP||E14001475\nSleaford and North Hykeham|Dr Caroline Johnson MP||E14001476\nSlough|Mr Tanmanjeet Singh Dhesi MP||E14001477\nSmethwick|Gurinder Singh Josan MP||E14001478\nSolihull West and Shirley|Dr Neil Shastri-Hurst MP||E14001479\nSouth Basildon and East Thurrock|James McMurdock MP||E14001480\nSouth Cambridgeshire|Pippa Heylings MP||E14001481\nSouth Cotswolds|Dr Roz Savage MP||E14001482\nSouth Derbyshire|Samantha Niblett MP||E14001483\nSouth Devon|Caroline Voaden MP||E14001484\nSouth Dorset|Lloyd Hatton MP||E14001485\nSouth East Cornwall|Anna Gelderd MP||E14001486\nSouth Holland and The Deepings|Rt Hon Sir John Hayes MP||E14001487\nSouth Leicestershire|Alberto Costa MP||E14001488\nSouth Norfolk|Ben Goldsborough MP||E14001489\nSouth Northamptonshire|Sarah Bool MP||E14001490\nSouth Ribble|Mr Paul Foster MP||E14001491\nSouth Shields|Emma Lewell MP||E14001492\nSouth Shropshire|Stuart Anderson MP||E14001493\nSouth Suffolk|James Cartlidge MP||E14001494\nSouth West Devon|Rebecca Smith MP||E14001495\nSouth West Hertfordshire|Mr Gagan Mohindra MP||E14001496\nSouth West Norfolk|Terry Jermy MP||E14001497\nSouth West Wiltshire|Rt Hon Dr Andrew Murrison MP||E14001498\nSouthampton Itchen|Darren Paffey MP||E14001499\nSouthampton Test|Satvir Kaur MP||E14001500\nSouthend East and Rochford|Mr Bayo Alaba MP||E14001501\nSouthend West and Leigh|David Burton-Sampson MP||E14001502\nSouthgate and Wood Green|Bambos Charalambous MP||E14001503\nSouthport|Patrick Hurley MP||E14001504\nSpelthorne|Lincoln Jopp MP||E14001505\nSpen Valley|Kim Leadbeater MP||E14001506\nSt Albans|Daisy Cooper MP||E14001507\nSt Austell and Newquay|Noah Law MP||E14001508\nSt Helens North|David Baines MP||E14001509\nSt Helens South and Whiston|Ms Marie Rimmer MP||E14001510\nSt Ives|Andrew George MP||E14001511\nSt Neots and Mid Cambridgeshire|Ian Sollom MP||E14001512\nStafford|Leigh Ingham MP||E14001513\nStaffordshire Moorlands|Rt Hon Dame Karen Bradley MP||E14001514\nStalybridge and Hyde|Rt Hon Jonathan Reynolds MP||E14001515\nStevenage|Kevin Bonavia MP||E14001516\nStockport|Navendu Mishra MP||E14001517\nStockton North|Chris McDonald MP||E14001518\nStockton West|Matt Vickers MP||E14001519\nStoke-on-Trent Central|Gareth Snell MP||E14001520\nStoke-on-Trent North|David Williams MP||E14001521\nStoke-on-Trent South|Dr Allison Gardner MP||E14001522\nStone, Great Wyrley and Penkridge|Rt Hon Sir Gavin Williamson MP||E14001523\nStourbridge|Cat Eccles MP||E14001524\nStratford and Bow|Uma Kumaran MP||E14001525\nStratford-on-Avon|Manuela Perteghella MP||E14001526\nStreatham and Croydon North|Rt Hon Steve Reed MP||E14001527\nStretford and Urmston|Andrew Western MP||E14001528\nStroud|Dr Simon Opher MP||E14001529\nSuffolk Coastal|Jenny Riddell-Carpenter MP||E14001530\nSunderland Central|Lewis Atkinson MP||E14001531\nSurrey Heath|Dr Al Pinkerton MP||E14001532\nSussex Weald|Ms Nusrat Ghani MP||E14001533\nSutton and Cheam|Luke Taylor MP||E14001534\nSutton Coldfield|Rt Hon Sir Andrew Mitchell MP||E14001535\nSwindon North|Will Stone MP||E14001536\nSwindon South|Rt Hon Heidi Alexander MP||E14001537\nTamworth|Sarah Edwards MP||E14001538\nTatton|Rt Hon Esther McVey MP||E14001539\nTaunton and Wellington|Gideon Amos MP||E14001540\nTelford|Shaun Davies MP||E14001541\nTewkesbury|Cameron Thomas MP||E14001542\nThe Wrekin|Rt Hon Mark Pritchard MP||E14001543\nThirsk and Malton|Kevin Hollinrake MP||E14001544\nThornbury and Yate|Claire Young MP||E14001545\nThurrock|Jen Craft MP||E14001546\nTipton and Wednesbury|Antonia Bance MP||E14001547\nTiverton and Minehead|Rachel Gilmour MP||E14001548\nTonbridge|Rt Hon Tom Tugendhat MP||E14001549\nTooting|Dr Rosena Allin-Khan MP||E14001550\nTorbay|Steve Darling MP||E14001551\nTorridge and Tavistock|Rt Hon Sir Geoffrey Cox KC MP||E14001552\nTottenham|Rt Hon David Lammy MP||E14001553\nTruro and Falmouth|Jayne Kirkham MP||E14001554\nTunbridge Wells|Mike Martin MP||E14001555\nTwickenham|Munira Wilson MP||E14001556\nTynemouth|Rt Hon Sir Alan Campbell MP||E14001557\nUxbridge and South Ruislip|Danny Beales MP||E14001558\nVauxhall and Camberwell Green|Florence Eshalomi MP||E14001559\nWakefield and Rothwell|Simon Lightwood MP||E14001560\nWallasey|Rt Hon Dame Angela Eagle MP||E14001561\nWalsall and Bloxwich|Rt Hon Valerie Vaz MP||E14001562\nWalthamstow|Ms Stella Creasy MP||E14001563\nWarrington North|Charlotte Nichols MP||E14001564\nWarrington South|Sarah Hall MP||E14001565\nWarwick and Leamington|Matt Western MP||E14001566\nWashington and Gateshead South|Mrs Sharon Hodgson MP||E14001567\nWatford|Matt Turmaine MP||E14001568\nWaveney Valley|Adrian Ramsay MP||E14001569\nWeald of Kent|Katie Lam MP||E14001570\nWellingborough and Rushden|Gen Kitchen MP||E14001571\nWells and Mendip Hills|Tessa Munt MP||E14001572\nWelwyn Hatfield|Andrew Lewin MP||E14001573\nWest Bromwich|Sarah Coombes MP||E14001574\nWest Dorset|Edward Morello MP||E14001575\nWest Ham and Beckton|James Asser MP||E14001576\nWest Lancashire|Ashley Dalton MP||E14001577\nWest Suffolk|Nick Timothy MP||E14001578\nWest Worcestershire|Dame Harriett Baldwin MP||E14001579\nWestmorland and Lonsdale|Tim Farron MP||E14001580\nWeston-super-Mare|Dan Aldridge MP||E14001581\nWetherby and Easingwold|Rt Hon Sir Alec Shelbrooke MP||E14001582\nWhitehaven and Workington|Josh MacAlister MP||E14001583\nWidnes and Halewood|Derek Twigg MP||E14001584\nWigan|Rt Hon Lisa Nandy MP||E14001585\nWimbledon|Mr Paul Kohler MP||E14001586\nWinchester|Dr Danny Chambers MP||E14001587\nWindsor|Jack Rankin MP||E14001588\nWirral West|Matthew Patrick MP||E14001589\nWitham|Rt Hon Priti Patel MP||E14001590\nWitney|Charlie Maynard MP||E14001591\nWoking|Mr Will Forster MP||E14001592\nWokingham|Clive Jones MP||E14001593\nWolverhampton North East|Sureena Brackenridge MP||E14001594\nWolverhampton South East|Rt Hon Pat McFadden MP||E14001595\nWolverhampton West|Warinder Juss||E14001596\nWorcester|Tom Collins MP||E14001597\nWorsley and Eccles|Michael Wheeler MP||E14001598\nWorthing West|Dr Beccy Cooper MP||E14001599\nWycombe|Rt Hon Emma Reynolds MP||E14001600\nWyre Forest|Mark Garnier MP||E14001601\nWythenshawe and Sale East|Mike Kane MP||E14001602\nYeovil|Adam Dance MP||E14001603\nYork Central|Rachael Maskell MP||E14001604\nYork Outer|Mr Luke Charters MP||E14001605\nBelfast East|Rt Hon Gavin Robinson MP||N05000001\nBelfast North|John Finucane MP||N05000002\nBelfast South and Mid Down|Claire Hanna MP||N05000003\nBelfast West|Paul Maskey MP||N05000004\nEast Antrim|Rt Hon Sammy Wilson MP||N05000005\nEast Londonderry|Mr Gregory Campbell MP||N05000006\nFermanagh and South Tyrone|Pat Cullen MP||N05000007\nFoyle|Colum Eastwood MP||N05000008\nLagan Valley|Sorcha Eastwood MP||N05000009\nMid Ulster|Mr Cathal Mallaghan MP||N05000010\nNewry and Armagh|Dáire Hughes MP||N05000011\nNorth Antrim|Jim Allister KC MP||N05000012\nNorth Down|Alex Easton MP||N05000013\nSouth Antrim|Robin Swann MP||N05000014\nSouth Down|Chris Hazzard MP||N05000015\nStrangford|Jim Shannon MP||N05000016\nUpper Bann|Carla Lockhart MP||N05000017\nWest Tyrone|Órfhlaith Begley MP||N05000018\nEast Renfrewshire|Blair McDougall MP||S14000021\nNa h-Eileanan an Iar|Torcuil Crichton MP||S14000027\nMidlothian|Kirsty McNeill MP||S14000045\nNorth Ayrshire and Arran|Irene Campbell MP||S14000048\nOrkney and Shetland|Rt Hon Alistair Carmichael MP||S14000051\nAberdeen North|Kirsty Blackman MP||S14000060\nAberdeen South|Douglas Lumsden MP||S14000061\nAberdeenshire North and Moray East|Seamus Logan MP||S14000062\nAirdrie and Shotts|Kenneth Stevenson MP||S14000063\nAlloa and Grangemouth|Brian Leishman MP||S14000064\nAngus and Perthshire Glens|Dave Doogan MP||S14000065\nArbroath and Broughty Ferry|Lara Bird MP||S14000066\nArgyll, Bute and South Lochaber|Brendan O'Hara MP||S14000067\nBathgate and Linlithgow|Kirsteen Sullivan MP||S14000068\nCaithness, Sutherland and Easter Ross|Jamie Stone MP||S14000069\nCoatbridge and Bellshill|Frank McNally MP||S14000070\nCowdenbeath and Kirkcaldy|Melanie Ward MP||S14000071\nCumbernauld and Kirkintilloch|Katrina Murray MP||S14000072\nDumfries and Galloway|John Cooper MP||S14000073\nDumfriesshire, Clydesdale and Tweeddale|Rt Hon David Mundell MP||S14000074\nDundee Central|Chris Law MP||S14000075\nDunfermline and Dollar|Graeme Downie MP||S14000076\nEast Kilbride and Strathaven|Joani Reid MP||S14000077\nEdinburgh East and Musselburgh|Chris Murray MP||S14000078\nEdinburgh North and Leith|Tracy Gilbert MP||S14000079\nEdinburgh South|Rt Hon Ian Murray MP||S14000080\nEdinburgh South West|Dr Scott Arthur MP||S14000081\nEdinburgh West|Christine Jardine MP||S14000082\nFalkirk|Euan Stainbank MP||S14000083\nGlasgow East|John Grady MP||S14000084\nGlasgow North|Martin Rhodes MP||S14000085\nGlasgow North East|Maureen Burke MP||S14000086\nGlasgow South|Gordon McKee MP||S14000087\nGlasgow South West|Dr Zubir Ahmed MP||S14000088\nGlasgow West|Patricia Ferguson MP||S14000089\nGlenrothes and Mid Fife|Richard Baker MP||S14000090\nGordon and Buchan|Harriet Cross MP||S14000091\nHamilton and Clyde Valley|Imogen Walker MP||S14000092\nInverclyde and Renfrewshire West|Martin McCluskey MP||S14000093\nInverness, Skye and West Ross-shire|Mr Angus MacDonald MP||S14000094\nLivingston|Gregor Poynton MP||S14000095\nLothian East|Rt Hon Douglas Alexander MP||S14000096\nMid Dunbartonshire|Susan Murray MP||S14000097\nMoray West, Nairn and Strathspey|Graham Leadbitter MP||S14000098\nMotherwell, Wishaw and Carluke|Pamela Nash MP||S14000099\nNorth East Fife|Wendy Chamberlain MP||S14000100\nPaisley and Renfrewshire North|Alison Taylor MP||S14000101\nPaisley and Renfrewshire South|Johanna Baxter MP||S14000102\nPerth and Kinross-shire|Pete Wishart MP||S14000103\nRutherglen|Michael Shanks MP||S14000104\nStirling and Strathallan|Chris Kane MP||S14000105\nWest Dunbartonshire|Douglas McAllister MP||S14000106\nAyr, Carrick and Cumnock|Elaine Stewart MP||S14000107\nBerwickshire, Roxburgh and Selkirk|John Lamont MP||S14000108\nCentral Ayrshire|Alan Gemmell MP||S14000109\nKilmarnock and Loudoun|Lillian Jones MP||S14000110\nWest Aberdeenshire and Kincardine|Andrew Bowie MP||S14000111\nAberafan Maesteg|Rt Hon Stephen Kinnock MP||W07000081\nAlyn and Deeside|Rt Hon Sir Mark Tami MP||W07000082\nBangor Aberconwy|Claire Hughes MP||W07000083\nBlaenau Gwent and Rhymney|Nick Smith MP||W07000084\nBrecon, Radnor and Cwm Tawe|David Chadwick MP||W07000085\nBridgend|Chris Elmore MP||W07000086\nCaerfyrddin|Ann Davies MP||W07000087\nCaerphilly|Chris Evans MP||W07000088\nCardiff East|Rt Hon Jo Stevens MP||W07000089\nCardiff North|Anna McMorrin MP||W07000090\nCardiff South and Penarth|Stephen Doughty MP||W07000091\nCardiff West|Mr Alex Barros-Curtis MP||W07000092\nCeredigion Preseli|Ben Lake MP||W07000093\nClwyd East|Becky Gittins MP||W07000094\nClwyd North|Gill German MP||W07000095\nDwyfor Meirionnydd|Rt Hon Liz Saville Roberts MP||W07000096\nGower|Tonia Antoniazzi MP||W07000097\nLlanelli|Dame Nia Griffith MP||W07000098\nMerthyr Tydfil and Aberdare|Gerald Jones MP||W07000099\nMid and South Pembrokeshire|Henry Tufnell MP||W07000100\nMonmouthshire|Catherine Fookes MP||W07000101\nMontgomeryshire and Glyndŵr|Steve Witherden MP||W07000102\nNeath and Swansea East|Carolyn Harris MP||W07000103\nNewport East|Jessica Morden MP||W07000104\nNewport West and Islwyn|Ruth Jones MP||W07000105\nPontypridd|Alex Davies-Jones MP||W07000106\nRhondda and Ogmore|Rt Hon Chris Bryant MP||W07000107\nSwansea West|Torsten Bell MP||W07000108\nTorfaen|Rt Hon Nick Thomas-Symonds MP||W07000109\nVale of Glamorgan|Rt Hon Kanishka Narayan MP||W07000110\nWrexham|Andrew Ranger MP||W07000111\nYnys Môn|Llinos Medi MP||W07000112"; // "Constituency|MP|count|ONS code" (count left blank until backfilled)
+
+const PERSONAS = [{"id": "ehcp", "label": "A parent of a child with an EHCP", "intro": "My child has an Education, Health and Care Plan. It is the reason they get the support they need. Because it is legally binding, when that support is not delivered I can make the council put it right. That legal duty is what these reforms put at risk.", "defaults": ["binding", "existing", "tribunal", "packages"]}, {"id": "complex", "label": "A parent of a child with complex needs", "hint": "Your child would probably keep an EHCP under the proposals.", "intro": "My child has complex needs. On paper, they are exactly the child these reforms say they will protect. But keeping the plan is not the same as keeping the rights inside it. What matters is whether the support in it is built around my child, and whether I can challenge the council when it gets things wrong.", "defaults": ["packages", "tribunal", "existing"]}, {"id": "sensupport", "label": "A parent of a child with SEND but no EHCP", "hint": "For example, your child gets SEN support at school.", "intro": "My child has special educational needs but does not have an EHCP. Under these proposals, children like mine are the ones most likely to be given a plan written by their school instead of one the law requires the council to deliver. Today, if school support is not enough, I can ask for an assessment and appeal if I am refused. I do not want that route closed to us.", "defaults": ["binding", "complex", "lottery"]}, {"id": "masking", "label": "A parent of a child who masks", "hint": "Your child looks fine at school and falls apart at home.", "intro": "My child masks. At school they hold it together, stay quiet and look like they are coping. At home, the exhaustion comes out. Their teachers are honest when they say my child seems fine in class. That is exactly the problem. The better my child hides their needs, the less likely anyone at school is to see them.", "defaults": ["complex", "schooljudge", "binding"]}, {"id": "refused", "label": "A parent whose child was turned down", "hint": "Refused an assessment or an EHCP, or waiting on an appeal.", "intro": "My child was turned down for the support they need. I already know how hard it is to get help. The only reason families like mine have any way forward when a council says no is the right to take that decision to an independent tribunal. These proposals would make that route harder, not easier.", "defaults": ["tribunal", "complex", "mediation", "binding"]}, {"id": "nonsend", "label": "A parent or grandparent of a child without SEND", "intro": "The children in my family do not have special educational needs. I am writing because I believe every child deserves the support they need to learn, and because any family can find itself needing these rights. Many needs are not spotted until a child is older. When children with SEND are properly supported, their classmates benefit too.", "defaults": ["fixsystem", "binding", "lottery"], "noSign": false}, {"id": "teacher", "label": "A teacher or teaching assistant", "staff": true, "intro": "I work in a school. Every day I see how hard staff try to support children with special educational needs, and how often we cannot give them what they need. Schools are already stretched. These proposals would hand us more of the responsibility for children's support, without the legal backing that makes councils fund it.", "defaults": ["lottery", "schooljudge", "behaviour", "ambition"]}, {"id": "senco", "label": "A SENCO or school leader", "staff": true, "intro": "I lead on special educational needs in a school. An EHCP is often the only thing that secures specialist help for a child when our own budget cannot stretch to it. I support better inclusion in mainstream schools. But moving most children onto school-written plans moves the responsibility onto us while removing the duty that makes the council share it.", "defaults": ["lottery", "packages", "binding", "fixsystem"]}, {"id": "advocate", "label": "A SEND advocate or professional", "hint": "For example, a caseworker, therapist, educational psychologist or solicitor.", "intro": "I support families through the SEND system. The families I work with do not win because they are pushy. They win because the law is on their side, and because an independent tribunal can check a council's decision. Year after year, most tribunal appeals that reach a decision go the family's way. That tells you where the problem lies.", "defaults": ["tribunal", "binding", "mediation", "packages"]}, {"id": "youngsen", "label": "A young person with SEND", "young": true, "hint": "At school, college or training. EHCPs can last until you are 25.", "intro": "I am a young person with special educational needs. These reforms are about people like me, so I want you to hear from me directly. The right support at school or college makes a real difference to what I can do with my life. EHCPs can last until 25, so these changes affect young people in college and training too, not just children in school.", "defaults": ["binding", "complex", "ambition", "behaviour"]}, {"id": "youngknows", "label": "A young person who knows someone with SEND", "young": true, "hint": "A brother, sister, friend or classmate.", "intro": "I am a young person, and someone I care about has special educational needs. I see how hard school can be for them, and how much the right support matters. Young people will live with the results of these decisions for longer than anyone, so I want you to hear from us.", "defaults": ["fixsystem", "complex", "behaviour"]}, {"id": "adult", "label": "An autistic, ADHD or disabled adult", "hint": "Or anyone whose own needs were missed at school.", "intro": "I grew up with needs that were missed or misread at school. I know what it costs a child when support comes too late or not at all, and I know how many of those costs are still being paid in adulthood. I do not want the next generation to go through the same thing.", "defaults": ["complex", "behaviour", "ambition"]}, {"id": "other", "label": "Someone else who cares about this", "intro": "I care about how children with special educational needs are treated, and I am worried these reforms will leave many of them without support they can rely on.", "defaults": ["fixsystem", "binding", "tribunal"]}];
+const CONCERNS = [{"id": "binding", "label": "A school plan is not a legal right", "hint": "EHCPs are enforceable. School-written plans would not be.", "youngText": "Right now, an EHCP is a legal promise. If the support in it does not happen, the council can be made to put it right. The new plans would be written by schools, and as I understand it, families could not appeal to a tribunal about what goes in them. That means support could quietly stop, and nobody would have to fix it.", "text": "An EHCP is legally binding. If the support written in it is not delivered, the council can be made to deliver it. The proposals would move most children onto Individual Support Plans written by their school. As I understand them, families would have no right to appeal to the SEND Tribunal about what goes into one. A plan nobody can enforce is a promise, not a right."}, {"id": "tribunal", "label": "Weaker appeal rights", "hint": "The Tribunal could no longer decide which school a child goes to.", "text": "Under the proposals, the SEND Tribunal would lose the power to decide which school is named in an EHCP. It could only tell the council to make the decision again. That sends families back to the same people who got it wrong, with no independent judge able to settle it. It is the council marking its own homework."}, {"id": "packages", "label": "Standard packages, not support built for the child", "hint": "Support drawn from set packages commissioned by councils.", "text": "Support in an EHCP would be drawn from standard specialist provision packages commissioned by councils. Children do not come in standard sizes. Two children with the same diagnosis can need very different help. Support should be built around the child in front of us, not chosen from a menu designed around a category."}, {"id": "complex", "label": "Who counts as \"complex\"?", "hint": "Many children's needs don't show in a classroom.", "youngText": "The plan is to keep EHCPs only for young people with complex needs. But lots of us do not look like we are struggling. Some of us hide it all day and fall apart at home. Some of us get called rude or naughty when we are actually overwhelmed. I am worried the people who hide it best will be the ones who lose out.", "text": "EHCPs would be kept for children with complex needs. But many children's needs do not show in a classroom. A child who masks looks fine. A child with ADHD looks naughty. A child with anxiety-driven avoidance looks defiant. None of them look complex on an ordinary school morning, and all of them can be struggling badly. I am worried that the children who hide their needs best will be the ones left out."}, {"id": "schooljudge", "label": "Schools judging needs they can't see", "hint": "Schools see part of the day, often a child at their most controlled.", "youngText": "Teachers only see us at school, and a lot of us work really hard to look fine there. They do not see how exhausted we are afterwards. Someone independent needs to check what support we need, not just the school on its own.", "text": "A school sees a child for part of the day, often at their most controlled. It does not see the exhaustion at home, the meltdown after school, or the child who cannot face going in. An independent assessment matters because it looks beyond the classroom. Leaving that judgement to the school, with no independent check, will miss the children who need help most."}, {"id": "behaviour", "label": "Needs treated as bad behaviour", "hint": "Sanctions and exclusions instead of support.", "youngText": "A lot of young people with SEND get punished for things we cannot control. Detentions, isolation, being sent home. That does not help. It just makes school feel like somewhere we do not belong. The right support would stop a lot of that from happening.", "text": "Too often, unmet needs are treated as bad behaviour. Children get sanctions, isolation and exclusion instead of support. Pupils with SEND are excluded at far higher rates than their classmates. Weaker, unenforceable plans will make this worse, and more children will end up out of school altogether."}, {"id": "ambition", "label": "Support shouldn't mean lower ambition", "hint": "SEND is not the same as low ability.", "youngText": "Having SEND does not mean we are not clever. Lots of us want to do GCSEs, A levels, college, apprenticeships and university. We need support to get there, not to be pushed into fewer subjects or lower targets.", "text": "Special educational needs are not the same as low ability. Many children with SEND are bright, and some are exceptional. What they need is the barriers taken away, not a narrower curriculum. Support built around getting a child through, rather than getting them on, lets them down. Academic ambition should be an option for every child, not a reward for coping well."}, {"id": "lottery", "label": "A postcode lottery", "hint": "Support would depend on a school's budget and staffing.", "text": "If support depends on what a school can provide, it will depend on that school's budget, staffing and goodwill. Two children with the same needs could get very different help depending on which school they go to. Schools are already stretched. Giving them more responsibility without an enforceable duty behind it will widen that gap, not close it."}, {"id": "mediation", "label": "Mediation first means more delay", "hint": "Another stage before families can reach a tribunal.", "text": "Families already wait far too long. Many new plans miss the 20-week legal deadline, and appeals can take a year or more. Putting mediation first risks adding another stage for families who are already exhausted. Mediation works when both sides want to agree. It should be a choice, never a hurdle in front of an independent judge."}, {"id": "existing", "label": "Children who already have a plan", "hint": "What happens at their next review?", "text": "Families with a plan now need to know what will happen to it. Will existing EHCPs be reviewed against a new, higher threshold? Children who have fought for their support should not have it quietly removed at their next annual review. I would like a clear answer on this."}, {"id": "fixsystem", "label": "Fix the system, not the rights", "hint": "Reform is needed. Removing rights isn't reform.", "text": "Nobody is arguing that the current system works. Families wait too long and councils are under real pressure. But the answer is to fund and fix the system, not to remove the legal rights that are often the only thing making it work. Taking those rights away does not fix anything. It just stops families being able to challenge it."}];
+
+const $ = id => document.getElementById(id);
+const fmt = n => Number(n).toLocaleString("en-GB");
+const seats = RAW.split("\n").filter(Boolean).map(l => { const [name, mp, n, code] = l.split("|"); return { name, mp: mp || "", n: n ? +n : null, code }; });
+const byCode = Object.fromEntries(seats.map(s => [s.code, s]));
+const hasTotal = Number.isFinite(FINAL.total);
+const reached = hasTotal && FINAL.total >= 100000;
+
+/* Hero */
+$("lede").textContent = "The petition has closed. Now the argument moves to Parliament, and every MP will have a say on these reforms. Tell yours what they would mean for the children you know.";
+if (hasTotal) {
+  const st = $("stat"); st.hidden = false;
+  st.textContent = `${fmt(FINAL.total)} people signed the petition.` + (FINAL.debate ? ` It will be debated on ${FINAL.debate}.` : "");
+}
+
+/* Search */
+const q = $("q"), results = $("results");
+const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const cleanMp = mp => mp.replace(/^Rt Hon /, "").replace(/ MP$/, "").trim();
+const greetingName = mp => cleanMp(mp).replace(/ KC$/, "");
+
+q.addEventListener("input", () => {
+  const t = norm(q.value.trim());
+  results.innerHTML = "";
+  if (t.length < 2) return;
+  const hits = seats.filter(s => norm(s.name).includes(t) || norm(s.mp).includes(t))
+    .sort((a, b) => norm(a.name).indexOf(t) - norm(b.name).indexOf(t)).slice(0, 8);
+  if (!hits.length) {
+    const li = document.createElement("li"); li.style.padding = "12px 14px";
+    li.textContent = "No constituency matches that. Try the postcode lookup link above.";
+    results.appendChild(li); return;
+  }
+  hits.forEach(s => {
+    const li = document.createElement("li"), b = document.createElement("button");
+    b.type = "button";
+    const a = document.createElement("span"); a.textContent = s.name;
+    const m = document.createElement("span"); m.className = "mp"; m.textContent = s.mp ? cleanMp(s.mp) : "No MP at present";
+    b.append(a, m); b.addEventListener("click", () => chooseSeat(s));
+    li.appendChild(b); results.appendChild(li);
+  });
+});
+
+let seat = null, persona = null, edited = false;
+
+function chooseSeat(s){
+  seat = s; results.innerHTML = ""; q.value = s.name;
+  $("seat").hidden = false;
+  $("seatName").textContent = s.name;
+  $("seatMp").textContent = s.mp ? `Your MP is ${cleanMp(s.mp)}.` : "This seat has no MP at the moment. You can still share the card below.";
+  const sc = $("seatCount");
+  if (s.n !== null) { sc.hidden = false; sc.textContent = `${fmt(s.n)} signed here`; } else sc.hidden = true;
+  $("step2").classList.remove("locked");
+  if (persona) unlockRest();
+  $("mpLink").href = s.mp
+    ? "https://members.parliament.uk/members/Commons?SearchText=" + encodeURIComponent(cleanMp(s.mp).replace(/^(Mr|Mrs|Ms|Dr|Sir|Dame) /, ""))
+    : "https://members.parliament.uk/FindYourMP";
+  mpEmail = ""; $("seatEmail").textContent = s.mp ? "Looking up their email address..." : "";
+  updateMailto();
+  edited = false; compose(); drawCard();
+  if (s.mp) lookupMp(s);
+}
+
+/* Live MP details from Parliament's Members API. Falls back quietly if unavailable. */
+let mpEmail = "", lookupToken = 0;
+async function getJSON(url, ms = 8000){
+  const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), ms);
+  try { const r = await fetch(url, { signal: ctl.signal, headers: { "Accept": "application/json" } }); if (!r.ok) throw new Error(r.status); return await r.json(); }
+  finally { clearTimeout(tm); }
+}
+function findEmails(obj, out = []){
+  if (!obj || typeof obj !== "object") return out;
+  for (const [k, v] of Object.entries(obj)) {
+    if (typeof v === "string" && /email/i.test(k) && /@/.test(v)) out.push(v.trim());
+    else if (typeof v === "object") findEmails(v, out);
+  }
+  return out;
+}
+async function lookupMp(s){
+  const token = ++lookupToken;
+  const API = "https://members-api.parliament.uk/api";
+  try {
+    let memberId = null, display = null;
+    const cs = await getJSON(`${API}/Location/Constituency/Search?searchText=${encodeURIComponent(s.name)}&take=20`);
+    const items = (cs && cs.items) || [];
+    const hit = items.map(i => i.value || i).find(v => v && norm(v.name || "") === norm(s.name));
+    const mem = hit && hit.currentRepresentation && hit.currentRepresentation.member;
+    const mv = mem && (mem.value || mem);
+    if (mv && mv.id) { memberId = mv.id; display = mv.nameDisplayAs || null; }
+    if (!memberId) throw new Error("no member");
+    const contact = await getJSON(`${API}/Members/${memberId}/Contact`);
+    if (token !== lookupToken) return;
+    const emails = [...new Set(findEmails(contact))];
+    const email = emails.find(e => /parliament\.uk$/i.test(e)) || emails[0] || "";
+    if (display) { s.liveName = display; $("seatMp").textContent = `Your MP is ${display}.`; }
+    $("mpLink").href = `https://members.parliament.uk/member/${memberId}/contact`;
+    if (email) {
+      mpEmail = email;
+      $("seatEmail").textContent = `Their email address is ${email}.`;
+      $("sendNote").innerHTML = "";
+      $("sendNote").append("\"Open in my email app\" fills in your MP's address for you. If it doesn't work on your device, copy the email and send it to " , Object.assign(document.createElement("b"), { textContent: email }), ".");
+    } else {
+      $("seatEmail").textContent = "We couldn't find their email address. The link under the email will take you to their contact details.";
+    }
+    updateMailto(); if (!edited) compose(); drawCard();
+  } catch (e) {
+    if (token !== lookupToken) return;
+    $("seatEmail").textContent = "";
+  }
+}
+
+/* Postcode lookup via postcodes.io */
+function cleanPc(v){ return v.toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+async function findByPostcode(){
+  const pc = cleanPc($("pc").value);
+  const msg = $("pcMsg");
+  if (pc.length < 5 || pc.length > 7) { msg.textContent = "That doesn't look like a full UK postcode. Check it and try again."; return; }
+  msg.textContent = "Looking up your postcode...";
+  try {
+    const r = await getJSON(`https://api.postcodes.io/postcodes/${pc}`);
+    const res = r && r.result;
+    if (!res) throw new Error("none");
+    const codes = res.codes || {};
+    const candidates = [codes.parliamentary_constituency_2024, codes.parliamentary_constituency_2025, codes.parliamentary_constituency].filter(Boolean);
+    let seat = candidates.map(c => byCode[c]).find(Boolean);
+    if (!seat) {
+      const names = [res.parliamentary_constituency_2024, res.parliamentary_constituency_2025, res.parliamentary_constituency].filter(Boolean).map(norm);
+      seat = seats.find(s => names.includes(norm(s.name)));
+    }
+    if (!seat) throw new Error("nomatch");
+    msg.textContent = "";
+    if (!$("addr").value.trim()) $("addr").dataset.pc = res.postcode || "";
+    chooseSeat(seat);
+  } catch (e) {
+    const notFound = String(e && e.message) === "404";
+    msg.textContent = notFound
+      ? "We couldn't find that postcode. Check it, or search by constituency name below."
+      : "The postcode lookup isn't working right now. Search by constituency name below instead.";
+    $("byName").open = true;
+  }
+}
+$("pcGo").addEventListener("click", findByPostcode);
+$("pc").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); findByPostcode(); } });
+
+function unlockRest(){
+  ["step3","step4","step5","step6"].forEach(id => $(id).classList.remove("locked"));
+  if (!seat.mp) $("step5").classList.add("locked");
+}
+
+/* Personas */
+const pBox = $("personas");
+PERSONAS.forEach(p => {
+  const l = document.createElement("label"); l.className = "opt";
+  const i = document.createElement("input"); i.type = "radio"; i.name = "persona"; i.value = p.id;
+  const d = document.createElement("div");
+  const b = document.createElement("b"); b.textContent = p.label;
+  d.appendChild(b);
+  if (p.hint) { const sp = document.createElement("span"); sp.textContent = p.hint; d.appendChild(sp); }
+  l.append(i, d); pBox.appendChild(l);
+  i.addEventListener("change", () => choosePersona(p));
+});
+
+function choosePersona(p){
+  persona = p;
+  $("staffTip").hidden = !p.staff;
+  $("youngTip").hidden = !p.young;
+  document.querySelectorAll("#concerns input").forEach(c => { c.checked = p.defaults.includes(c.value); });
+  if (seat) unlockRest();
+  edited = false; compose();
+}
+
+/* Concerns */
+const cBox = $("concerns");
+CONCERNS.forEach(c => {
+  const l = document.createElement("label"); l.className = "opt";
+  const i = document.createElement("input"); i.type = "checkbox"; i.value = c.id;
+  const d = document.createElement("div");
+  const b = document.createElement("b"); b.textContent = c.label;
+  const sp = document.createElement("span"); sp.textContent = c.hint;
+  d.append(b, sp); l.append(i, d); cBox.appendChild(l);
+  i.addEventListener("change", () => { edited = false; compose(); });
+});
+
+/* Email */
+function compose(){
+  if (!seat || !persona || edited) return;
+  const name = $("name").value.trim() || "[Your name]";
+  const addr = $("addr").value.trim() || "[Your address and postcode]";
+  const story = $("story").value.trim();
+  const mp = seat.liveName ? seat.liveName : seat.mp ? greetingName(seat.mp) : "[MP name]";
+  const picked = CONCERNS.filter(c => document.querySelector(`#concerns input[value="${c.id}"]`).checked);
+
+  const refSubj = ($("before").checked && $("ref").value.trim()) ? ` (your ref: ${$("ref").value.trim()})` : "";
+  $("subject").value = (FINAL.debate
+    ? "Please speak in the debate on SEND children's legal rights"
+    : "Please stand up for SEND children's legal rights") + refSubj;
+
+  let petition;
+  if (hasTotal) {
+    const local = seat.n !== null ? `, including ${fmt(seat.n)} people here in ${seat.name}` : "";
+    petition = `The petition "Protect legal right to support for children with SEND" closed on 14 October with ${fmt(FINAL.total)} signatures${local}.` +
+      (FINAL.debate ? ` It will be debated in Parliament on ${FINAL.debate}.` : reached ? " That means Parliament will consider it for a debate." : "");
+  } else {
+    petition = `I am writing about the Government's proposed SEND reforms, the subject of the petition "Protect legal right to support for children with SEND", which closed on 14 October.`;
+  }
+
+  const concernText = picked.length
+    ? "These are the things that worry me most about the Government's proposals.\n\n" + picked.map(c => (persona.young && c.youngText) ? c.youngText : c.text).join("\n\n")
+    : "";
+
+  const before = $("before").checked;
+  const ref = $("ref").value.trim(), when = $("when").value.trim();
+  const replied = (document.querySelector('input[name="replied"]:checked') || {}).value === "yes";
+  let followUp = "";
+  if (before) {
+    const whenTxt = when ? ` ${when}` : "";
+    const refTxt = "";
+    followUp = replied
+      ? `I contacted you about this before${whenTxt}, and thank you for your reply.${refTxt} I am writing again because the decisions that matter are still ahead, and I would like to know what you will do next.`
+      : `I contacted you about this before${whenTxt} and have not yet had a reply.${refTxt} I am writing again because the decisions that matter are still ahead, and I would be grateful for a response this time.`;
+  }
+  const ask1 = FINAL.debate
+    ? `Attend the debate on ${FINAL.debate} and speak up for children with SEND in ${seat.name}.`
+    : `Support a debate in Parliament on SEND legal rights, and attend and speak in it.`;
+
+  const parts = [
+    (before && ref) ? `Your reference: ${ref}` : "",
+    `Dear ${mp},`,
+    `I live in ${seat.name} and I am writing to you as my MP.`,
+    followUp,
+    persona.intro,
+    petition,
+    concernText,
+    story,
+    `I am asking you to do three things.\n\n1. ${ask1}\n2. If these reforms come before Parliament, oppose any change that removes the legal duty behind EHCPs or weakens families' right to appeal to an independent tribunal.\n3. Reply to let me know where you stand.`,
+    `Thank you for reading this.`,
+    `Yours sincerely,\n\n${name}\n${addr}`
+  ].filter(Boolean);
+
+  $("body").value = parts.join("\n\n");
+  updateMailto();
+}
+
+function updateMailto(){
+  $("mailto").href = "mailto:" + (mpEmail || "").replace(/[^A-Za-z0-9.@_+-]/g, "") + "?subject=" + encodeURIComponent($("subject").value) + "&body=" + encodeURIComponent($("body").value);
+}
+["name","addr","story","ref","when"].forEach(id => $(id).addEventListener("input", () => { if (!edited) compose(); }));
+$("before").addEventListener("change", () => { $("beforeBox").hidden = !$("before").checked; if (!edited) compose(); });
+document.querySelectorAll('input[name="replied"]').forEach(r => r.addEventListener("change", () => { if (!edited) compose(); }));
+$("body").addEventListener("input", () => { edited = true; updateMailto(); });
+$("subject").addEventListener("input", updateMailto);
+$("reset").addEventListener("click", () => { edited = false; compose(); say("Email reset to your choices above."); });
+const say = m => { $("toast").textContent = m; };
+
+$("copy").addEventListener("click", async () => {
+  const text = `Subject: ${$("subject").value}\n\n${$("body").value}`;
+  try { await navigator.clipboard.writeText(text); say("Copied. Paste it into an email to your MP."); }
+  catch (e) {
+    const ta = $("body"); ta.focus(); ta.select(); let ok = false;
+    try { ok = document.execCommand("copy"); } catch (_) {}
+    say(ok ? "Copied. Paste it into an email to your MP." : "Your browser blocked copying. The email is selected, so copy it with your keyboard or a long press.");
+  }
+});
+
+/* Share card */
+let cardUrl = null, cardCanvas = null;
+async function drawCard(){
+  if (!seat) return;
+  try { await document.fonts.load("700 40px 'Atkinson Hyperlegible'"); } catch (_) {}
+  const W = 1080, H = 1080, c = document.createElement("canvas"); c.width = W; c.height = H;
+  const x = c.getContext("2d");
+  const F = w => `${w} 'Atkinson Hyperlegible', 'Segoe UI', Arial, sans-serif`;
+  x.fillStyle = "#332852"; x.fillRect(0, 0, W, H);
+  x.fillStyle = "#FFD14D"; x.fillRect(0, 0, W, 16);
+
+  x.fillStyle = "#CFC6E6"; x.font = F("700 38px");
+  x.fillText("SEND children's legal rights", 70, 105);
+
+  x.fillStyle = "#FFFFFF"; x.font = F("700 96px");
+  let y = 250;
+  const head = seat.liveName ? `I've emailed ${seat.liveName}.` : seat.mp ? `I've emailed ${cleanMp(seat.mp)}.` : "I've emailed my MP.";
+  wrap(x, head, W - 140).forEach(l => { x.fillText(l, 70, y); y += 104; });
+
+  x.fillStyle = "#FFD14D"; x.font = F("700 54px");
+  y += 20;
+  wrap(x, "Have you told your MP what these reforms would mean for SEND children?", W - 140).slice(0, 3).forEach(l => { x.fillText(l, 70, y); y += 66; });
+
+  if (hasTotal) {
+    x.fillStyle = "#FFFFFF"; x.font = F("700 40px");
+    x.fillText(`${fmt(FINAL.total)} people signed the petition.`, 70, H - 230);
+  }
+  roundRect(x, 70, H - 190, W - 140, 12, 6, "#4DB6A0");
+  x.fillStyle = "#FFFFFF"; x.font = F("700 46px");
+  x.fillText("Email your MP. It takes five minutes.", 70, H - 110);
+  x.fillStyle = "#FFD14D"; x.font = F("700 44px");
+  x.fillText("sendrights.co.uk", 70, H - 52);
+
+  cardCanvas = c; cardUrl = c.toDataURL("image/png");
+  $("card").src = cardUrl;
+  $("card").alt = `Share card: I've emailed my MP about SEND children's legal rights.`;
+}
+function wrap(ctx, text, max){
+  const words = text.split(" "), out = []; let line = "";
+  words.forEach(w => { const t = line ? line + " " + w : w; if (ctx.measureText(t).width > max && line) { out.push(line); line = w; } else line = t; });
+  if (line) out.push(line); return out;
+}
+function roundRect(ctx, x, y, w, h, r, fill){
+  ctx.fillStyle = fill; ctx.beginPath();
+  ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); ctx.fill();
+}
+
+(async () => {
+  try {
+    if (!window.claude || !window.claude.use) return;
+    const dl = await window.claude.use("downloads");
+    if (!dl) return;
+    const btn = $("save"); btn.hidden = false;
+    btn.addEventListener("click", async () => {
+      if (!cardCanvas) return;
+      try {
+        const blob = await new Promise(r => cardCanvas.toBlob(r, "image/png"));
+        await dl.save({ filename: `email-your-mp-${seat.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png`, data: blob });
+      } catch (_) { $("saveHint").textContent = "Saving did not work here. Press and hold the card, or right click it, to save it."; }
+    });
+  } catch (_) {}
+})();
+</script>
+</body>
+</html>
