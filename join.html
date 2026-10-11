@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join your local team | One Voice: The SEND Rights Coalition</title>
+<meta name="description" content="Get involved in the fight to protect every child's education. Join a local SEND rights team.">
+<meta property="og:title" content="Get involved in the fight to protect every child's education">
+<meta property="og:description" content="When communities bring their voices together, we make a lot of noise. Join a local team.">
+<meta property="og:url" content="https://sendrights.co.uk/join">
+<meta property="og:image" content="https://sendrights.co.uk/og-join.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Get involved in the fight to protect every child's education. sendrights.co.uk/join">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sendrights.co.uk/og-join.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #412165;
+    --plum-dark: #2c1646;
+    --teal: #4DB6A0;
+    --teal-dark: #2f8a77;
+    --yellow: #FFD14D;
+    --ink: #1d1626;
+    --muted: #5d5468;
+    --line: #ddd6e6;
+    --bg: #faf8fc;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  .bar { height: 8px; background: linear-gradient(90deg, var(--plum) 0 70%, var(--teal) 70% 100%); }
+  header {
+    background: var(--plum);
+    color: #fff;
+    padding: 40px 16px 48px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .kicker {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--plum-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  h1 { font-size: clamp(1.9rem, 6vw, 2.8rem); line-height: 1.1; margin: 0 0 16px; }
+  header p { font-size: 1.1rem; margin: 0; color: #e9e1f3; max-width: 34em; }
+  main { padding: 0 16px 64px; }
+  .how {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    margin: -24px 0 32px;
+  }
+  .how div {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .how strong { display: block; color: var(--plum); font-size: 1.05rem; margin-bottom: 4px; }
+  .how span { color: var(--muted); font-size: 0.95rem; }
+  form {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 20px;
+  }
+  h2 { color: var(--plum); font-size: 1.3rem; margin: 28px 0 12px; }
+  h2:first-child { margin-top: 0; }
+  label { display: block; font-weight: 600; margin: 16px 0 6px; }
+  .hint { font-weight: 400; color: var(--muted); font-size: 0.9rem; }
+  input[type=text], input[type=email], input[type=tel], select, textarea {
+    width: 100%;
+    font: inherit;
+    padding: 12px;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+  }
+  input:focus, select:focus, textarea:focus { outline: 3px solid var(--yellow); border-color: var(--plum); }
+  textarea { min-height: 90px; }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  legend { font-weight: 600; margin: 16px 0 6px; padding: 0; }
+  .checks label {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-weight: 400; margin: 8px 0;
+    padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 6px;
+    cursor: pointer;
+  }
+  .checks input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--plum); flex: none; }
+  .checks label:has(input:checked) { border-color: var(--teal); background: #eef8f5; }
+  .consent { background: #f5f1fa; border-radius: 8px; padding: 14px; margin-top: 24px; font-size: 0.95rem; }
+  .consent label { font-weight: 400; display: flex; gap: 10px; margin: 0; }
+  .consent input { width: 18px; height: 18px; accent-color: var(--plum); flex: none; margin-top: 3px; }
+  button {
+    margin-top: 24px; width: 100%;
+    background: var(--plum); color: #fff;
+    font: inherit; font-weight: 700; font-size: 1.1rem;
+    border: 0; border-radius: 8px; padding: 16px;
+    cursor: pointer;
+  }
+  button:hover { background: var(--plum-dark); }
+  button:disabled { opacity: 0.6; cursor: wait; }
+  .msg { margin-top: 16px; padding: 14px; border-radius: 8px; display: none; }
+  .msg.err { display: block; background: #fdecec; color: #8a1c1c; }
+  .done { display: none; text-align: center; padding: 32px 20px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  .done h2 { font-size: 1.6rem; }
+  .hp { position: absolute; left: -9999px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 0 16px 40px; }
+  footer a { color: var(--plum); }
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<header>
+  <div class="wrap">
+    <span class="kicker">One Voice: The SEND Rights Coalition</span>
+    <h1>Get involved in the fight to protect every child's education.</h1>
+    <p>One parent is easy to ignore. A whole community isn't. When communities bring their voices together, we make a lot of noise. We're building a small team of six in every constituency. Register your interest and we'll help you get started.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="how" aria-label="How it works">
+      <div><strong>1. Register</strong><span>Tell us where you are and how you'd like to help.</span></div>
+      <div><strong>2. We get in touch</strong><span>Your regional lead contacts you and asks who else you could bring.</span></div>
+      <div><strong>3. Team of six</strong><span>Share the work so nobody burns out.</span></div>
+    </section>
+
+    <div class="done" id="soon" style="display:none"><h2>Sign-ups open very soon</h2><p>We're just finishing setting this up. Please check back later today.</p><p><a href="/">Sign the petition</a> in the meantime.</p></div>
+
+    <form id="join" novalidate>
+      <h2>About you</h2>
+
+      <label for="name">Your name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+
+      <label for="phone">Mobile number <span class="hint">(optional, for a WhatsApp group)</span></label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel">
+
+      <label for="postcode">Postcode <span class="hint">(we use this to find your constituency)</span></label>
+      <input type="text" id="postcode" name="postcode" autocomplete="postal-code" required>
+
+      <label for="role">Which best describes you?</label>
+      <select id="role" name="role" required>
+        <option value="">Choose one</option>
+        <option>Parent or carer</option>
+        <option>SEND young adult (18 or over)</option>
+        <option>Education, health or care professional</option>
+        <option>Charity or support group</option>
+        <option>Supporter</option>
+      </select>
+
+      <h2>How you'd like to help</h2>
+      <fieldset class="checks">
+        <legend>Pick as many as you like</legend>
+        <label><input type="checkbox" name="help" value="Lead a local team"> Lead or co-lead a local team</label>
+        <label><input type="checkbox" name="help" value="Social media"> Social media</label>
+        <label><input type="checkbox" name="help" value="Planning and events"> Planning and events</label>
+        <label><input type="checkbox" name="help" value="MPs, councillors and press"> Contacting MPs, councillors and press</label>
+        <label><input type="checkbox" name="help" value="Design and graphics"> Design and graphics</label>
+        <label><input type="checkbox" name="help" value="Tech and websites"> Tech, websites and online tools</label>
+        <label><input type="checkbox" name="help" value="Research and law"> Research, policy or legal knowledge</label>
+        <label><input type="checkbox" name="help" value="Turn up on the day"> Turning up on the day</label>
+      </fieldset>
+
+      <fieldset class="checks">
+        <legend>Which action groups interest you? <span class="hint">(optional)</span></legend>
+        <label><input type="checkbox" name="groups" value="Communication and interaction"> Communication and interaction</label>
+        <label><input type="checkbox" name="groups" value="Cognition and learning"> Cognition and learning</label>
+        <label><input type="checkbox" name="groups" value="Social, emotional and mental health"> Social, emotional and mental health</label>
+        <label><input type="checkbox" name="groups" value="Sensory and physical needs"> Sensory and physical needs</label>
+        <label><input type="checkbox" name="groups" value="Health and social care"> Health and social care</label>
+        <label><input type="checkbox" name="groups" value="Preparing for adulthood"> Preparing for adulthood (16 to 25)</label>
+      </fieldset>
+
+      <label for="bring">Could you bring anyone else with you?</label>
+      <select id="bring" name="bring">
+        <option value="">Choose one</option>
+        <option>Not right now</option>
+        <option>1 or 2 people</option>
+        <option>3 to 5 people</option>
+        <option>A whole group</option>
+      </select>
+
+      <label for="notes">Anything else we should know? <span class="hint">(optional)</span></label>
+      <textarea id="notes" name="notes" placeholder="Groups you already run, skills, times you're free"></textarea>
+      <p class="hint">Please don't share details about your child's needs here. We don't need them.</p>
+
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="consent">
+        <label><input type="checkbox" id="consent" name="consent" value="yes" required>
+        <span>I'm 18 or over. I agree to the coalition keeping these details to contact me about volunteering. They won't be shared outside the organising team, and I can ask for them to be deleted at any time.</span></label>
+      </div>
+
+      <button type="submit" id="submit">Register my interest</button>
+      <div class="msg" id="msg" role="alert"></div>
+    </form>
+
+    <div class="done" id="done" tabindex="-1">
+      <h2>Thank you. You're in.</h2>
+      <p id="doneText">Your regional lead will be in touch soon.</p>
+      <p>In the meantime, tell one other person who'd help.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  To have your details deleted, email <a href="mailto:jo-jeffries@live.co.uk">jo-jeffries@live.co.uk</a>.<br><a href="/">Sign the petition</a> · <a href="/preview">Email your MP</a>
+</footer>
+
+<script>
+  // Paste the web app URL from Google Apps Script here.
+  const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+  const form = document.getElementById("join");
+  // Until the sign-up sheet is connected, hide the form so no one's details are lost.
+  if (!/^https:\/\/script\.google\.com\//.test(SCRIPT_URL)) {
+    form.style.display = "none";
+    document.getElementById("soon").style.display = "block";
+  }
+  const msg = document.getElementById("msg");
+  const btn = document.getElementById("submit");
+
+  function showError(text) {
+    msg.textContent = text;
+    msg.className = "msg err";
+  }
+
+  async function lookupPostcode(pc) {
+    try {
+      const res = await fetch("https://api.postcodes.io/postcodes/" + encodeURIComponent(pc));
+      if (!res.ok) return null;
+      const data = (await res.json()).result;
+      return {
+        constituency: data.parliamentary_constituency_2024 || data.parliamentary_constituency || "",
+        region: data.region || data.country || "",
+        country: data.country || ""
+      };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    msg.className = "msg";
+
+    const f = new FormData(form);
+    if (f.get("website")) return; // spam trap
+
+    const name = (f.get("name") || "").trim();
+    const email = (f.get("email") || "").trim();
+    const postcode = (f.get("postcode") || "").trim().toUpperCase();
+
+    if (!name || !email || !postcode || !f.get("role")) {
+      showError("Please fill in your name, email, postcode and which best describes you.");
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      showError("That email address doesn't look right. Please check it.");
+      return;
+    }
+    if (!f.get("consent")) {
+      showError("Please tick the box to confirm you're 18 or over and agree to us contacting you.");
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    const place = await lookupPostcode(postcode);
+
+    const payload = new URLSearchParams({
+      name,
+      email,
+      phone: (f.get("phone") || "").trim(),
+      postcode,
+      constituency: place ? place.constituency : "",
+      region: place ? place.region : "",
+      country: place ? place.country : "",
+      role: f.get("role") || "",
+      help: f.getAll("help").join(", "),
+      groups: f.getAll("groups").join(", "),
+      bring: f.get("bring") || "",
+      notes: (f.get("notes") || "").trim(),
+      team: (new URLSearchParams(location.search).get("team") || "").slice(0, 80),
+      consent: "yes"
+    });
+
+    try {
+      await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: payload });
+      form.style.display = "none";
+      const done = document.getElementById("done");
+      if (place && place.constituency) {
+        document.getElementById("doneText").textContent =
+          "We've got you down for " + place.constituency + ". Your regional lead will be in touch soon.";
+      }
+      done.style.display = "block";
+      done.focus();
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = "Register my interest";
+      showError("Something went wrong sending that. Please try again in a minute.");
+    }
+  });
+</script>
+<script data-goatcounter="https://sendrights.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
