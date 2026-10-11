@@ -201,7 +201,7 @@ summary{cursor:pointer;font-weight:700;color:var(--plum-text);padding:6px 0}
 
   <footer>
     <p class="closes">One email. Five minutes.</p>
-    <p class="small">The petition "Protect legal right to support for children with SEND" closed on 14 October. <a href="https://petition.parliament.uk/petitions/764268" target="_blank" rel="noopener">See it on the Parliament website</a>.</p>
+    <p class="small"><span id="footClose">The petition "Protect legal right to support for children with SEND" closed on 14 October.</span> <a href="https://petition.parliament.uk/petitions/764268" target="_blank" rel="noopener">See it on the Parliament website</a>.</p>
   </footer>
 </main>
 
@@ -222,9 +222,14 @@ const seats = RAW.split("\n").filter(Boolean).map(l => { const [name, mp, n, cod
 const byCode = Object.fromEntries(seats.map(s => [s.code, s]));
 const hasTotal = Number.isFinite(FINAL.total);
 const reached = hasTotal && FINAL.total >= 100000;
+/* Petition closes at the end of 14 October 2026, UK time. Before then, the page asks people to sign too. */
+const OPEN = new Date() < new Date("2026-10-14T23:59:59+01:00");
 
 /* Hero */
-$("lede").textContent = "The petition has closed. Now the argument moves to Parliament, and every MP will have a say on these reforms. Tell yours what they would mean for the children you know.";
+$("lede").textContent = OPEN
+  ? "The petition closes on Wednesday 14 October, so sign it first. Then tell your MP what these reforms would mean for the children you know."
+  : "The petition has closed. Now the argument moves to Parliament, and every MP will have a say on these reforms. Tell yours what they would mean for the children you know.";
+if (OPEN) $("footClose").textContent = "The petition \"Protect legal right to support for children with SEND\" is open until 14 October. Sign it, then click the link in the confirmation email.";
 if (hasTotal) {
   const st = $("stat"); st.hidden = false;
   st.textContent = `${fmt(FINAL.total)} people signed the petition.` + (FINAL.debate ? ` It will be debated on ${FINAL.debate}.` : "");
@@ -412,7 +417,9 @@ function compose(){
     : "Please stand up for SEND children's legal rights") + refSubj;
 
   let petition;
-  if (hasTotal) {
+  if (OPEN) {
+    petition = `I am writing about the Government's proposed SEND reforms, the subject of the petition "Protect legal right to support for children with SEND". It has passed 100,000 signatures and closes on 14 October.`;
+  } else if (hasTotal) {
     const local = seat.n !== null ? `, including ${fmt(seat.n)} people here in ${seat.name}` : "";
     petition = `The petition "Protect legal right to support for children with SEND" closed on 14 October with ${fmt(FINAL.total)} signatures${local}.` +
       (FINAL.debate ? ` It will be debated in Parliament on ${FINAL.debate}.` : reached ? " That means Parliament will consider it for a debate." : "");
