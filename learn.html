@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn your SEND rights | sendrights.co.uk</title>
+<meta name="description" content="Short, free slideshows on SEND law in England. Your legal rights, asking for an EHC needs assessment, and appealing to the SEND Tribunal.">
+<meta property="og:title" content="Learn your SEND rights">
+<meta property="og:description" content="Short, free slideshows. Your rights, asking for an assessment, and appealing to the SEND Tribunal.">
+<meta property="og:url" content="https://sendrights.co.uk/learn">
+<meta property="og:image" content="https://sendrights.co.uk/og-learn.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sendrights.co.uk/og-learn.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+.intro{color:var(--muted);font-size:1.1rem;margin:14px 0 26px;max-width:34em}
+.decks{display:grid;gap:12px;list-style:none;margin:0;padding:0}
+.deck{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--line);border-left:8px solid var(--teal);border-radius:0 14px 14px 0;padding:16px 18px}
+.deck:hover{border-color:var(--teal)}
+.deck strong{display:block;font-size:1.2rem;color:var(--plum-text)}
+.deck span{display:block;color:var(--muted);font-size:.98rem}
+.deck em{font-style:normal;font-weight:700;color:var(--teal-text);font-size:.92rem}
+.viewer[hidden]{display:none}
+.stage{position:relative;background:#33285A;background:var(--plum);color:#fff;border-radius:16px;aspect-ratio:4/5;max-height:78vh;overflow:hidden;display:flex;flex-direction:column;border-top:10px solid var(--teal)}
+@media (min-width:700px){.stage{aspect-ratio:16/10}}
+.slide{flex:1;padding:clamp(22px,5vw,46px);display:flex;flex-direction:column;justify-content:center;overflow:auto}
+.slide .kick{color:var(--yellow);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.85rem;margin:0 0 8px}
+.slide h2{font-size:clamp(1.6rem,5.5vw,2.6rem);line-height:1.08;margin:0 0 14px}
+.slide h2 mark{background:var(--yellow);color:#412165;padding:0 .18em;border-radius:6px}
+.slide p{font-size:clamp(1.02rem,3.2vw,1.25rem);margin:0 0 10px;color:#ECE6F5}
+.slide ul{margin:4px 0 0;padding-left:1.15em;font-size:clamp(1rem,3.1vw,1.2rem)}
+.slide li{margin:6px 0}
+.slide .big{font-size:clamp(3rem,14vw,5.5rem);font-weight:700;color:var(--yellow);line-height:1;margin:0 0 6px}
+.slide a{color:var(--yellow);font-weight:700}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+.bar button{font:inherit;font-weight:700;border-radius:10px;padding:10px 18px;border:2px solid var(--plum);background:var(--plum);color:#fff;cursor:pointer;min-width:96px}
+.bar button[disabled]{opacity:.35;cursor:default}
+.count{color:var(--muted);font-weight:700}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.dots span{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.dots span.on{background:var(--teal)}
+.vhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 12px}
+.vhead h2{margin:0;font-size:1.3rem;color:var(--plum-text)}
+.vhead a{color:var(--plum-text);font-weight:700;white-space:nowrap}
+.after{margin-top:22px;color:var(--muted)}
+.after a{color:var(--plum-text);font-weight:700}
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"></div>
+<header class="site-head"><a class="brand" href="/">sendrights.co.uk</a><nav><a href="/help">Get help</a><a href="/learn" aria-current="page">Learn</a><a href="/webinars">Webinars</a><a href="/join">Join</a></nav></header>
+<main>
+  <section id="list">
+    <h1 class="page-title">Learn your rights</h1>
+    <p class="intro">Short slideshows on SEND law in England. Click through at your own pace. Each one takes about 5 minutes.</p>
+    <ul class="decks" id="decks"></ul>
+    <p class="after">Got a specific problem? <a href="/help">Answer a few questions to find help</a>. Prefer to ask someone? <a href="/webinars">Join a free webinar</a>.</p>
+  </section>
+
+  <section class="viewer" id="viewer" hidden>
+    <div class="vhead"><h2 id="vtitle"></h2><a href="/learn" id="close">All slideshows</a></div>
+    <div class="stage" role="region" aria-roledescription="slideshow" id="stage"><div class="slide" id="slide" aria-live="polite" tabindex="-1"></div></div>
+    <div class="bar"><button type="button" id="prev">Back</button><span class="count" id="count"></span><button type="button" id="next">Next</button></div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <p class="after">This is general information about the law in England as it stands today, not legal advice about your child.</p>
+  </section>
+</main>
+<footer class="site-foot"><a href="/">Home</a> · <a href="/help">Get help</a> · <a href="/webinars">Free webinars</a> · <a href="/join">Join a local team</a></footer>
+
+<script>
+(function(){
+var DECKS = {
+rights:{title:"Your legal rights in 5 minutes",blurb:"The five rights every family should know, and why they matter right now.",slides:[
+ {k:"Start here",h:"Your child has <mark>legal rights</mark>.",p:["Not favours. Not goodwill. Rights, written into law.","They come from the Children and Families Act 2014. They apply to every family in England."]},
+ {k:"Right 1",h:"You can ask for an assessment.",p:["You can ask the council for an Education, Health and Care needs assessment yourself.","You don't need the school's permission. You don't need a diagnosis."]},
+ {k:"Right 2",big:"6 / 20",h:"The council has deadlines.",p:["6 weeks to decide whether to assess.","20 weeks from your request to a final plan.","These are legal duties, not targets."]},
+ {k:"Right 3",h:"An EHCP is <mark>legally binding</mark>.",p:["Everything written into the plan, the council has to deliver.","Not aim for. Not consider. Deliver.","Lack of money is not a defence."]},
+ {k:"Right 4",h:"You can name the school.",p:["You can ask for the school you believe your child needs.","The council must agree unless narrow legal exceptions apply."]},
+ {k:"Right 5",h:"You can go to a judge.",p:["If the council gets it wrong, you can appeal to the SEND Tribunal.","It's independent of the council. It's free. You can represent yourself.","This is the difference between asking and being entitled."]},
+ {k:"Why it matters",h:"The law is what makes the system work.",p:["Councils are stretched, so they often say no.","Families appeal, and most appeals succeed.","The legal rights are what get children the support they were always entitled to."]},
+ {k:"What's changing",h:"The Government plans to change the law.",p:["It proposes keeping EHCPs only for children with 'complex needs'. Most children would get a plan written by their school instead, with no legal force behind it.","Nothing has changed yet. Your rights today are exactly as described here."]},
+ {k:"A promise is not a right",h:"A school plan is a promise. An EHCP is a <mark>legal duty</mark>.",p:["If a school can't deliver what it promised, there's nothing you can do.","If a council doesn't deliver an EHCP, you can make them."]},
+ {k:"What next",h:"Use your rights. Then help protect them.",p:["<a href=\"/help\">Find help for your situation</a>","<a href=\"/preview\">Email your MP</a>","<a href=\"/join\">Join a local team</a>"],links:true}
+]},
+assessment:{title:"Asking for an EHC needs assessment",blurb:"Who can ask, the legal test, the deadlines, and how to write the request.",slides:[
+ {k:"The basics",h:"What is an EHC needs assessment?",p:["It's how the council works out what support your child needs.","It's the first step to an Education, Health and Care Plan (EHCP)."]},
+ {k:"Who can ask",h:"You can ask. Directly.",p:["Parents can ask the council. So can young people aged 16 to 25.","Schools can ask too, but you don't need to wait for them.","You don't need a diagnosis."]},
+ {k:"The legal test",h:"The test is <mark>low</mark>.",p:["The council must assess if your child has or <strong>may</strong> have special educational needs, and <strong>may</strong> need support through an EHCP.","'May' is the word in the law (section 36(8), Children and Families Act 2014)."]},
+ {k:"What councils get wrong",h:"Things that are not part of the test.",p:["Having to spend a set amount at school first.","Having to complete a certain number of review cycles.","Needing a diagnosis.","Being 'behind' academically. Children who are doing well can still need support."]},
+ {k:"How to ask",h:"Put it in writing.",p:["Email the council's SEND team and keep a copy.","Say you are requesting an EHC needs assessment under section 36.","Describe what your child finds hard, at school and at home.","List what's been tried and what hasn't worked.","IPSEA has a free model letter you can adapt."]},
+ {k:"Deadlines",big:"6 weeks",h:"to decide whether to assess.",p:["16 weeks to tell you if they won't issue a plan after assessing.","20 weeks from your request to a final plan.","Diary the dates the day you send your request."]},
+ {k:"During the assessment",h:"You have a voice in it.",p:["The council must get advice from you, the school, an educational psychologist, health and social care.","Write your own parent advice. Describe the child you know, including the parts the school doesn't see."]},
+ {k:"If they say no",h:"You can appeal.",p:["You have 2 months from the decision letter to appeal to the SEND Tribunal.","You'll need a mediation certificate first. You don't have to go to mediation.","Many families win these appeals."]},
+ {k:"What next",h:"Get help with your request.",p:["<a href=\"/help#r_request\">See the full guide in our help finder</a>","<a href=\"https://www.ipsea.org.uk/\" target=\"_blank\" rel=\"noopener\">IPSEA: free advice and model letters</a>","<a href=\"/webinars\">Join a free webinar</a>"],links:true}
+]},
+tribunal:{title:"Appealing to the SEND Tribunal",blurb:"What you can appeal, the deadlines, and how a case actually runs.",slides:[
+ {k:"The basics",h:"The SEND Tribunal is <mark>independent</mark>.",p:["It's part of the court system, not the council.","A judge and a specialist panel look at your child's case fresh.","There's no fee. You can represent yourself."]},
+ {k:"What you can appeal",h:"Decisions you can challenge.",p:["A refusal to assess.","A refusal to issue a plan.","What's in the plan: needs (Section B), support (Section F), the school (Section I).","A decision to end the plan."]},
+ {k:"Deadline",big:"2 months",h:"from the decision letter.",p:["Or 1 month from your mediation certificate, if that's later.","Don't wait until you feel ready. Register first, prepare after."]},
+ {k:"Before you appeal",h:"Get a mediation certificate.",p:["Contact the mediation adviser named in the council's letter.","You can say you don't want mediation and still get the certificate.","If you're only appealing the school named, you don't need one."]},
+ {k:"Registering",h:"Form SEND35.",p:["Say what you're appealing and why, briefly.","Attach the decision letter and the plan if there is one.","The tribunal will send you a timetable."]},
+ {k:"Preparing",h:"The work happens before the hearing.",p:["Gather your evidence in one place, numbered.","Work through the working document, which shows your wording next to the council's.","Get expert evidence if you can. Ask about legal aid in your child's name."]},
+ {k:"The hearing",h:"Less formal than you'd think.",p:["Usually a judge and a specialist member.","You explain what your child needs and why.","The panel will help you put your case. Being organised matters more than being a lawyer."]},
+ {k:"While you wait",h:"The plan still applies.",p:["The council must deliver the current plan while you appeal.","If the council is ending the plan, it stays in place until the appeal is decided."]},
+ {k:"What next",h:"You don't have to do it alone.",p:["<a href=\"/help#r_appeal_start\">Starting an appeal: step by step</a>","<a href=\"https://www.ipsea.org.uk/\" target=\"_blank\" rel=\"noopener\">IPSEA tribunal helpline</a>","<a href=\"https://www.sossen.org.uk/\" target=\"_blank\" rel=\"noopener\">SOS!SEN</a>","<a href=\"https://www.gov.uk/appeal-ehc-plan-decision\" target=\"_blank\" rel=\"noopener\">GOV.UK guide and forms</a>"],links:true}
+]}
+};
+
+var listEl=document.getElementById("list"), viewer=document.getElementById("viewer"), decksEl=document.getElementById("decks");
+var slideEl=document.getElementById("slide"), prev=document.getElementById("prev"), next=document.getElementById("next"), count=document.getElementById("count"), dots=document.getElementById("dots");
+var cur=null, i=0;
+
+Object.keys(DECKS).forEach(function(id){
+  var d=DECKS[id]; var li=document.createElement("li");
+  li.innerHTML='<a class="deck" href="#'+id+'"><strong>'+d.title+'</strong><span>'+d.blurb+'</span><em>'+d.slides.length+' slides</em></a>';
+  decksEl.appendChild(li);
+});
+
+function render(){
+  var s=DECKS[cur].slides[i], html="";
+  html+='<p class="kick">'+s.k+'</p>';
+  if(s.big) html+='<p class="big">'+s.big+'</p>';
+  html+='<h2>'+s.h+'</h2>';
+  if(s.links) html+='<ul>'+s.p.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>';
+  else html+=s.p.map(function(x){return "<p>"+x+"</p>";}).join("");
+  slideEl.innerHTML=html;
+  var n=DECKS[cur].slides.length;
+  count.textContent=(i+1)+" of "+n;
+  prev.disabled=i===0;
+  next.textContent=i===n-1?"Finish":"Next";
+  dots.innerHTML=""; for(var j=0;j<n;j++){ var d=document.createElement("span"); if(j<=i) d.className="on"; dots.appendChild(d); }
+}
+function open(id){
+  if(!DECKS[id]){ listEl.hidden=false; viewer.hidden=true; cur=null; return; }
+  cur=id; i=0; listEl.hidden=true; viewer.hidden=false;
+  document.getElementById("vtitle").textContent=DECKS[id].title;
+  document.title=DECKS[id].title+" | sendrights.co.uk";
+  render(); slideEl.focus();
+  if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:"/learn/"+id,title:DECKS[id].title,event:true});
+}
+prev.addEventListener("click",function(){ if(i>0){i--;render();} });
+next.addEventListener("click",function(){ if(i<DECKS[cur].slides.length-1){i++;render();} else { location.hash=""; } });
+document.addEventListener("keydown",function(e){ if(!cur) return; if(e.key==="ArrowRight"){next.click();} if(e.key==="ArrowLeft"){prev.click();} });
+var sx=null; var stage=document.getElementById("stage");
+stage.addEventListener("touchstart",function(e){sx=e.touches[0].clientX;},{passive:true});
+stage.addEventListener("touchend",function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){ if(dx<0) next.click(); else prev.click(); } sx=null; });
+window.addEventListener("hashchange",function(){ open(location.hash.slice(1)); if(!cur){ document.title="Learn your SEND rights | sendrights.co.uk"; window.scrollTo(0,0);} });
+open(location.hash.slice(1));
+})();
+</script>
+<script data-goatcounter="https://sendrights.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

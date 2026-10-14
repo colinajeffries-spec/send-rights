@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free SEND webinars | sendrights.co.uk</title>
+<meta name="description" content="Free online sessions for families on SEND rights in England. Email us and we'll invite you to the next one.">
+<meta property="og:title" content="Free SEND webinars">
+<meta property="og:description" content="Free online sessions on SEND rights. Email us and we'll invite you to the next one.">
+<meta property="og:url" content="https://sendrights.co.uk/webinars">
+<meta property="og:image" content="https://sendrights.co.uk/og-webinars.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sendrights.co.uk/og-webinars.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+.intro{color:var(--muted);font-size:1.1rem;margin:14px 0 0;max-width:34em}
+.cta{margin:30px 0;padding:22px;border-radius:0 14px 14px 0;background:var(--tint);border-left:8px solid var(--yellow)}
+.cta h2{margin:0 0 6px;font-size:1.5rem;color:var(--plum-text)}
+.cta p{margin:0 0 14px}
+.btn{display:inline-block;background:var(--plum);color:#fff;font-weight:700;font-size:1.1rem;padding:14px 22px;border-radius:12px;text-decoration:none}
+.btn:hover{background:#2F1749}
+.addr{display:block;margin-top:10px;color:var(--muted);font-size:1rem}
+.addr strong{color:var(--ink)}
+h2.sec{font-size:1.4rem;margin:34px 0 10px}
+.topics{display:grid;gap:10px;list-style:none;padding:0;margin:0}
+.topics li{background:var(--card);border:2px solid var(--line);border-left:8px solid var(--teal);border-radius:0 12px 12px 0;padding:12px 14px}
+.topics strong{display:block;color:var(--plum-text)}
+.topics span{color:var(--muted);font-size:.97rem}
+.how{padding-left:1.2em}
+.how li{margin:6px 0}
+.small{color:var(--muted);font-size:.97rem}
+.small a,.how a{color:var(--plum-text);font-weight:700}
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"></div>
+<header class="site-head"><a class="brand" href="/">sendrights.co.uk</a><nav><a href="/help">Get help</a><a href="/learn">Learn</a><a href="/webinars" aria-current="page">Webinars</a><a href="/join">Join</a></nav></header>
+<main>
+  <h1 class="page-title">Free webinars</h1>
+  <p class="intro">Short online sessions for parents, carers and young people on SEND rights in England. Run by parents who've been through it. Bring your questions.</p>
+
+  <section class="cta">
+    <h2>Get an invite to the next session</h2>
+    <p>Email us and we'll invite you to the next one. Tell us your first name and which topics you'd like.</p>
+    <a class="btn" id="mail" href="#">Email for an invite</a>
+    <span class="addr">Or email <strong id="addr"></strong> with "Webinar" in the subject.</span>
+  </section>
+
+  <h2 class="sec">Topics we're planning</h2>
+  <ul class="topics">
+    <li><strong>Your legal rights in plain English</strong><span>The five rights every family should know.</span></li>
+    <li><strong>Asking for an EHC needs assessment</strong><span>The legal test, the deadlines and how to write the request.</span></li>
+    <li><strong>Getting the plan right</strong><span>Draft plans, specific support in Section F, and naming a school.</span></li>
+    <li><strong>Annual reviews and moving school</strong><span>Using the review to fix the plan, and the phase transfer deadlines.</span></li>
+    <li><strong>Appealing to the SEND Tribunal</strong><span>What to expect, from mediation certificate to hearing.</span></li>
+    <li><strong>Exclusions, part-time timetables and school based trauma</strong><span>What schools and councils must do when school isn't working.</span></li>
+  </ul>
+
+  <h2 class="sec">How it works</h2>
+  <ol class="how">
+    <li>Email us and we'll add you to the invite list.</li>
+    <li>We'll email you the date and a link before each session.</li>
+    <li>Join online. Cameras optional. You can just listen.</li>
+  </ol>
+  <p class="small">We won't give advice on individual cases in a group session, and nobody has to share their own situation. For help with your own situation now, <a href="/help">use our help finder</a> or <a href="/learn">watch a short slideshow</a>.</p>
+  <p class="small">We only use your email to invite you to webinars. To be removed, just reply and ask.</p>
+</main>
+<footer class="site-foot"><a href="/">Home</a> · <a href="/help">Get help</a> · <a href="/learn">Learn your rights</a> · <a href="/join">Join a local team</a></footer>
+<script>
+(function(){
+  var EMAIL = "jo-jeffries@live.co.uk";
+  var body = "Hi,\n\nPlease invite me to the next SEND rights webinar.\n\nMy first name:\nMy area (town or council):\nTopics I'm most interested in:\n\nThanks";
+  document.getElementById("addr").textContent = EMAIL;
+  var a = document.getElementById("mail");
+  a.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Webinar invite please") + "&body=" + encodeURIComponent(body);
+  a.addEventListener("click", function(){ if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:"webinar-email-click",event:true}); });
+})();
+</script>
+<script data-goatcounter="https://sendrights.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Find help with SEND | sendrights.co.uk</title>
+<meta name="description" content="Answer a few questions about your child's situation. Get your legal rights, the deadlines, what to do next and who can help. Free, for families in England.">
+<meta property="og:title" content="Find help with SEND">
+<meta property="og:description" content="Answer a few questions. Get your rights, the deadlines, your next steps and who can help.">
+<meta property="og:url" content="https://sendrights.co.uk/help">
+<meta property="og:image" content="https://sendrights.co.uk/og-help.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sendrights.co.uk/og-help.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+.intro{color:var(--muted);font-size:1.1rem;margin:14px 0 0;max-width:34em}
+.progress{display:flex;gap:6px;margin:28px 0 10px}
+.progress span{height:6px;flex:1;border-radius:3px;background:var(--line)}
+.progress span.on{background:var(--teal)}
+.q{font-size:clamp(1.5rem,5.5vw,2rem);line-height:1.15;margin:8px 0 6px;color:var(--plum-text)}
+.qhint{color:var(--muted);margin:0 0 18px}
+.opts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;font:inherit;color:var(--ink);cursor:pointer}
+.opt:hover{border-color:var(--teal)}
+.opt:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.opt strong{display:block;font-size:1.08rem}
+.opt span{display:block;color:var(--muted);font-size:.95rem;margin-top:2px}
+.back{background:none;border:0;color:var(--plum-text);font:inherit;font-weight:700;padding:6px 0;margin-top:18px;cursor:pointer;text-decoration:underline}
+.result h2{font-size:clamp(1.7rem,6vw,2.3rem);line-height:1.1;margin:10px 0 8px}
+.result .sum{font-size:1.12rem;margin:0 0 6px}
+.block{margin-top:26px;padding:18px 20px;border-radius:0 14px 14px 0;background:var(--tint);border-left:8px solid var(--teal)}
+.block.dates{border-left-color:var(--yellow)}
+.block.steps{border-left-color:var(--plum)}
+.block h3{margin:0 0 8px;font-size:1.2rem}
+.block ul,.block ol{margin:0;padding-left:1.25em}
+.block li{margin:6px 0}
+.orgs{display:grid;gap:10px;margin-top:10px}
+.org{display:block;border:2px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink);background:var(--card)}
+.org:hover{border-color:var(--teal)}
+.org strong{color:var(--plum-text)}
+.org span{display:block;color:var(--muted);font-size:.95rem}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tools button,.tools a{font:inherit;font-weight:700;border-radius:10px;padding:10px 16px;border:2px solid var(--plum);background:transparent;color:var(--plum-text);cursor:pointer;text-decoration:none}
+.tools .primary{background:var(--plum);color:#fff}
+.note{font-size:.95rem;color:var(--muted);margin-top:24px}
+@media print{.site-head,.tools,.back,.progress,.site-foot,.bars{display:none!important}.block{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"></div>
+<header class="site-head"><a class="brand" href="/">sendrights.co.uk</a><nav><a href="/help" aria-current="page">Get help</a><a href="/learn">Learn</a><a href="/webinars">Webinars</a><a href="/join">Join</a></nav></header>
+<main>
+  <h1 class="page-title">Find help with SEND</h1>
+  <p class="intro">Answer a few questions. We'll show you where you stand in law, the deadlines that matter, what to do next and who can help. It's free and nothing you click is saved.</p>
+  <div id="app" aria-live="polite"></div>
+  <p class="note">This is general information about the law in England, not legal advice about your child. It reflects the law as it stands today. The Government has proposed changes, but nothing has changed yet and Education, Health and Care Plans (EHCPs) work exactly as described here. If you're in Wales, Scotland or Northern Ireland the law is different.</p>
+</main>
+<footer class="site-foot"><a href="/">Home</a> · <a href="/learn">Learn your rights</a> · <a href="/webinars">Free webinars</a> · <a href="/join">Join a local team</a></footer>
+
+<script>
+(function(){
+/* ---------- Who can help ---------- */
+var ORGS = {
+  ipsea:{name:"IPSEA",url:"https://www.ipsea.org.uk/",what:"Free legal advice on SEND law. Advice line, tribunal helpline and model letters you can copy."},
+  sossen:{name:"SOS!SEN",url:"https://www.sossen.org.uk/",what:"Free helpline on 020 8538 3731 (term time). Advice centres and tribunal support."},
+  sendiass:{name:"Your local SENDIASS",url:"https://councilfordisabledchildren.org.uk/about-us-0/networks/information-advice-and-support-services-network/find-your-local-ias-service",what:"Free, impartial advice in your area. Every council has to fund one. They can come to meetings with you."},
+  contact:{name:"Contact",url:"https://contact.org.uk/",what:"Free helpline on 0808 808 3555 for families with disabled children. Education, benefits and health."},
+  coram:{name:"Coram Child Law Advice",url:"https://childlawadvice.org.uk/",what:"Free legal information on education law, including exclusions."},
+  squarepeg:{name:"Square Peg",url:"https://www.teamsquarepeg.co.uk/",what:"Support and campaigning for families of children who can't attend school."},
+  nfis:{name:"Not Fine in School",url:"https://notfineinschool.co.uk/",what:"Parent-led support for families facing barriers to attending school."},
+  lgsco:{name:"Local Government and Social Care Ombudsman",url:"https://www.lgo.org.uk/",what:"Free. Investigates council delays and failures once you've used the council's complaints process."},
+  tribunal:{name:"GOV.UK: appeal an EHC plan decision",url:"https://www.gov.uk/appeal-ehc-plan-decision",what:"The official guide and forms for the SEND Tribunal."},
+  discrim:{name:"GOV.UK: disability discrimination at school",url:"https://www.gov.uk/complain-about-school/disability-discrimination",what:"How to bring a discrimination claim to the SEND Tribunal."},
+  snj:{name:"Special Needs Jungle",url:"https://www.specialneedsjungle.com/",what:"Parent-led news, explainers and guides on SEND law and policy."},
+  join:{name:"Join a local SEND rights team",url:"/join",what:"Meet other families near you. You don't have to do this on your own."}
+};
+
+/* ---------- Questions ---------- */
+var Q = {
+  start:{q:"What's happening for your child right now?",hint:"Pick the one that fits best. You can come back and try another.",opts:[
+    ["My child is struggling and I don't know where to start","They might need more help at school or nursery","needs"],
+    ["I asked for an EHC needs assessment and the council said no","Or they've said no to issuing a plan after assessing","refused"],
+    ["We're waiting on an assessment or a plan","It's taking a long time","waiting"],
+    ["We've been sent a draft EHCP","Or a final plan I'm not happy with","plan"],
+    ["My child has an EHCP but isn't getting the help in it","The support written in the plan isn't happening","r_delivery"],
+    ["Annual review, a change of school, or the council wants to end the plan","","review"],
+    ["My child is being sent home, excluded or kept on a part-time timetable","","exclusion"],
+    ["My child can't get into school at the moment","Anxiety, distress or school based trauma","attendance"],
+    ["We're going to the SEND Tribunal","Or thinking about it","tribunal"],
+    ["My child is 16 or over","College, sixth form, apprenticeships, moving to adult services","post16"],
+    ["I think the school is treating my child unfairly because of their disability","","r_discrim"],
+    ["Something else, or I just want to understand my rights","","other"]
+  ]},
+  needs:{q:"Has the school or nursery put any extra support in place?",hint:"This is often called SEN Support. There may be a plan or a list of strategies.",opts:[
+    ["No, or I'm not sure","","r_sen_support"],
+    ["Yes, but it isn't enough","My child is still struggling","r_request"],
+    ["My child doesn't go to school or nursery","Home educated, or not in any setting","r_request_ehe"]
+  ]},
+  refused:{q:"What did the council say no to?",hint:"Check the letter. It should say which decision it is and how to appeal.",opts:[
+    ["They won't carry out an assessment","","r_refuse_assess"],
+    ["They assessed, but won't issue a plan","","r_refuse_plan"],
+    ["They haven't replied at all","It's been more than 6 weeks since I asked","r_late"]
+  ]},
+  waiting:{q:"How long has it been since you asked for the assessment?",opts:[
+    ["Less than 20 weeks","","r_assessing"],
+    ["More than 20 weeks","","r_late"]
+  ]},
+  plan:{q:"Is it a draft or a final plan?",hint:"A draft usually comes with a letter giving you 15 days to respond.",opts:[
+    ["A draft plan","","r_draft"],
+    ["A final plan","","r_final"]
+  ]},
+  review:{q:"Which of these is it?",opts:[
+    ["An annual review is coming up or just happened","","r_annual"],
+    ["My child is moving to a new school or setting next September","Nursery to school, primary to secondary, school to college","r_transfer"],
+    ["The council wants to stop (cease) the plan","","r_cease"]
+  ]},
+  exclusion:{q:"Which sounds most like it?",opts:[
+    ["The school has formally suspended or permanently excluded my child","I've had a letter","r_formal_ex"],
+    ["I keep being asked to collect my child early, or keep them at home","There's no letter","r_informal_ex"],
+    ["My child is on a part-time timetable","","r_part_time"]
+  ]},
+  attendance:{q:"Does your child have an EHCP?",opts:[
+    ["Yes","","r_attend_ehcp"],
+    ["No, or we're still asking for one","","r_attend_no"]
+  ]},
+  tribunal:{q:"Where are you up to?",opts:[
+    ["I've had a decision and I'm thinking about appealing","","r_appeal_start"],
+    ["I've registered my appeal","","r_appeal_prep"]
+  ]},
+  post16:{q:"Does your young person have an EHCP?",opts:[
+    ["Yes","","r_post16_ehcp"],
+    ["No","","r_post16_no"]
+  ]},
+  other:{q:"What would help most?",opts:[
+    ["Understand the basics of my child's legal rights","","r_basics"],
+    ["Talk to someone","","r_talk"],
+    ["Health or social care support isn't happening","","r_health"],
+    ["I want to complain about the council","","r_complain"]
+  ]}
+};
+
+/* ---------- Results ---------- */
+var R = {
+r_sen_support:{t:"Ask the school what support your child is getting",s:"Every school and nursery has a legal duty to do its best for children with special educational needs. You don't need a diagnosis for that duty to apply.",
+ rights:["Schools must use their 'best endeavours' to make sure a child with special educational needs gets the support they need (section 66, Children and Families Act 2014).",
+  "Every school must have a SENCO, the teacher in charge of SEN.",
+  "Support should follow a cycle: assess, plan, do, review. You should be involved at every step.",
+  "Your child doesn't need a diagnosis to get support. Needs are what count, not labels."],
+ dates:["There's no fixed deadline for SEN Support. A review each term is normal practice. If nothing changes after a term, that's a sign to push further."],
+ steps:["Email the SENCO and ask for a meeting. Putting it in writing gives you a record.",
+  "Ask what your child's needs are, what support they're getting, how often, and who provides it.",
+  "Write down what you see at home, especially after school. Schools often don't see that part.",
+  "If support isn't working, you can ask the council for an EHC needs assessment yourself. You don't need the school's permission."],
+ orgs:["sendiass","ipsea","contact"],learn:"rights"},
+
+r_request:{t:"You can ask the council for an EHC needs assessment",s:"You can make the request yourself. You don't need the school to agree, and you don't need a diagnosis.",
+ rights:["Parents can ask the council for an Education, Health and Care needs assessment (section 36, Children and Families Act 2014).",
+  "The test is low. The council must assess if your child has or may have special educational needs, and may need support through an EHCP. 'May' is the word in the law.",
+  "The council can't insist the school has spent a set amount, or that you wait for a 'cycle' of support first."],
+ dates:["6 weeks: the council must tell you whether it will assess.",
+  "16 weeks: if it assesses and decides not to issue a plan, it must tell you by then.",
+  "20 weeks: from your request to the final plan."],
+ steps:["Put the request in writing and keep a copy. Email is fine. Note the date you sent it.",
+  "IPSEA has a free model letter you can adapt.",
+  "Explain what your child finds hard and what's already been tried. Include anything from the school, GP or other professionals if you have it.",
+  "Ask the school for copies of their records about your child.",
+  "Diary the 6 week date. If you hear nothing, chase in writing."],
+ orgs:["ipsea","sendiass","sossen"],learn:"assessment"},
+
+r_request_ehe:{t:"Children outside school can still have an EHC needs assessment",s:"The council's duties apply to children in its area, not just children in school.",
+ rights:["You can ask for an EHC needs assessment for a child who is home educated or not in any setting.",
+  "The test is the same: your child has or may have special educational needs and may need support through an EHCP.",
+  "If your child isn't in school because no suitable school is available, the council has a duty to arrange suitable education (section 19, Education Act 1996)."],
+ dates:["6 weeks: decision on whether to assess.","20 weeks: from your request to the final plan."],
+ steps:["Make the request to the council in writing and keep a copy.",
+  "Describe your child's needs in detail, with any evidence you have.",
+  "If you removed your child from school because their needs weren't met, say so."],
+ orgs:["ipsea","sendiass","contact"],learn:"assessment"},
+
+r_refuse_assess:{t:"You can appeal a refusal to assess",s:"This is one of the most common appeals, and families win most of them.",
+ rights:["You have a legal right to appeal to the SEND Tribunal, which is independent of the council.",
+  "The test the council should have used is low: your child has or may have special educational needs, and may need an EHCP.",
+  "There's no fee to appeal. You can represent yourself."],
+ dates:["2 months from the date of the decision letter to appeal.",
+  "Or 1 month from the date of your mediation certificate, if that's later.",
+  "Before appealing you must contact a mediation adviser. You don't have to go to mediation, but you do need the certificate."],
+ steps:["Read the refusal letter. It must tell you how to appeal and give contact details for mediation.",
+  "Contact the mediation adviser and ask for a certificate. You can say you don't want mediation.",
+  "Register your appeal with the tribunal using form SEND35.",
+  "You can also ask for the request again with new evidence, but don't let that make you miss the appeal deadline.",
+  "Some councils change their mind once an appeal is registered."],
+ orgs:["ipsea","sossen","tribunal","sendiass"],learn:"tribunal"},
+
+r_refuse_plan:{t:"You can appeal a refusal to issue a plan",s:"If the council assessed your child but says an EHCP isn't needed, you can ask the tribunal to order one.",
+ rights:["You have a right to appeal to the SEND Tribunal.",
+  "The question is whether the support your child needs can reasonably be provided without a plan.",
+  "The council must send you copies of all the advice and reports it gathered. Ask for them if you haven't had them."],
+ dates:["2 months from the decision letter, or 1 month from your mediation certificate if that's later.",
+  "The council should have told you within 16 weeks of your request."],
+ steps:["Get copies of every report from the assessment. They are often your best evidence.",
+  "Look for anything in the reports that the school can't provide from its own resources.",
+  "Get a mediation certificate, then register your appeal on form SEND35."],
+ orgs:["ipsea","sossen","tribunal"],learn:"tribunal"},
+
+r_late:{t:"The council is past its legal deadline",s:"Deadlines in SEND law are legal duties, not targets. You can hold the council to them.",
+ rights:["The council must decide whether to assess within 6 weeks of your request.",
+  "The final plan must be issued within 20 weeks of your request.",
+  "Only a few narrow exceptions allow these deadlines to be missed, such as the child being away for 4 weeks or more. Staff shortages are not one of them."],
+ dates:["6 weeks: decision on whether to assess.","20 weeks: final plan."],
+ steps:["Write to the council's SEND team. Say which deadline has passed and ask when they will act. Give them a short deadline, such as 10 working days.",
+  "If nothing happens, make a formal complaint to the council.",
+  "After the complaints process, you can go to the Local Government and Social Care Ombudsman.",
+  "For serious delay a solicitor can send a 'pre-action letter' warning of judicial review. This often gets things moving. IPSEA can explain how."],
+ orgs:["ipsea","lgsco","sendiass"],learn:"assessment"},
+
+r_assessing:{t:"What should happen during the assessment",s:"You have a right to be involved and to see the advice the council gathers.",
+ rights:["The council must get advice from you, the school, an educational psychologist, health and social care.",
+  "It must take your views and your child's views into account.",
+  "You'll get copies of the advice it gathers."],
+ dates:["16 weeks: if the council decides not to issue a plan, it must tell you by then.",
+  "20 weeks: from your request to the final plan."],
+ steps:["Write your own parent advice. Describe your child's needs, how they show at home and school, and what has and hasn't worked.",
+  "Ask to see each report as it comes in. Check it describes your child accurately.",
+  "If a report is vague, ask the professional to say exactly what support is needed and how often.",
+  "Diary the 20 week date."],
+ orgs:["ipsea","sendiass","contact"],learn:"assessment"},
+
+r_draft:{t:"Make the most of the draft plan",s:"The draft is your best chance to get the plan right before it becomes legally binding.",
+ rights:["You have at least 15 days to comment on the draft and to ask for a meeting.",
+  "You can ask for a particular school or setting to be named. The council must agree unless the school is unsuitable, would harm other children's efficient education, or would be an inefficient use of resources (section 39, Children and Families Act 2014).",
+  "Support in Section F must be specific. It should say what, how much, how often and who provides it. 'Access to' or 'opportunities for' is not good enough."],
+ dates:["15 days to respond to the draft.","20 weeks from your original request to the final plan."],
+ steps:["Check every need in Section B has matching support in Section F.",
+  "Change vague words into specifics. For example, 'speech therapy' becomes 'one hour a week of speech and language therapy from a qualified therapist'.",
+  "Check the reports. Anything a professional said your child needs should be in the plan.",
+  "Name your preferred school in writing.",
+  "Send your comments in writing and keep a copy."],
+ orgs:["ipsea","sossen","sendiass"],learn:"rights"},
+
+r_final:{t:"You can appeal a final plan",s:"If the final plan is wrong, you can appeal parts of it to the SEND Tribunal.",
+ rights:["You can appeal the description of needs (Section B), the support (Section F) and the school or setting named (Section I), or the fact that no school is named.",
+  "If you appeal any of those, the tribunal can also make recommendations about the health and social care parts.",
+  "While you appeal, the council must still deliver the plan as written."],
+ dates:["2 months from the date of the final plan letter, or 1 month from your mediation certificate if that's later.",
+  "If you're only appealing the school named, you don't need a mediation certificate."],
+ steps:["List exactly what you think is wrong and what you want instead.",
+  "Gather evidence: reports, school records, private assessments if you have them.",
+  "Get a mediation certificate if you need one, then register on form SEND35.",
+  "Ask for help early. Appeals are much easier with advice."],
+ orgs:["ipsea","sossen","tribunal"],learn:"tribunal"},
+
+r_delivery:{t:"The council must deliver what's in the plan",s:"This is the strongest right in SEND law. The support in Section F is a legal duty, not something the council can ration.",
+ rights:["The council must secure the special educational provision in the plan (section 42, Children and Families Act 2014). This duty is absolute. Lack of money or staff is not a defence.",
+  "Health provision in Section G must be arranged by the health body (the Integrated Care Board).",
+  "The school can't decide to stop or reduce support in the plan."],
+ dates:["The duty applies from the day the plan is final. There's no grace period."],
+ steps:["Write down what's missing, since when, and how it affects your child.",
+  "Write to the council's SEND team. Quote section 42 of the Children and Families Act 2014 and ask them to put the support in place by a set date.",
+  "IPSEA has a free model letter for this.",
+  "If nothing changes, a solicitor can send a pre-action letter for judicial review. Legal aid may be available in your child's name.",
+  "You can also complain to the council and then the Ombudsman, which can order a remedy for missed support."],
+ orgs:["ipsea","lgsco","sossen"],learn:"rights"},
+
+r_annual:{t:"Use the annual review to fix the plan",s:"The plan must be reviewed at least once a year. It's your chance to update it.",
+ rights:["The plan must be reviewed at least every 12 months, or every 3 to 6 months for children under 5.",
+  "You must get at least 2 weeks' notice of the meeting and see the reports beforehand.",
+  "You can ask for an early review if things change."],
+ dates:["The school sends the review report to the council within 2 weeks of the meeting.",
+  "The council must tell you within 4 weeks of the meeting whether it will keep, change or stop the plan.",
+  "If it's changing the plan, you have 15 days to comment on the proposed changes. The final amended plan must follow within 8 weeks of those proposals.",
+  "You can appeal the amended final plan, just like a new one."],
+ steps:["Before the meeting, write down what's changed and what isn't working.",
+  "Ask for updated reports from therapists and the school.",
+  "Ask for any changes you want to be recorded in the review report.",
+  "Chase the 4 week decision in writing if it doesn't arrive."],
+ orgs:["ipsea","sendiass","sossen"],learn:"rights"},
+
+r_transfer:{t:"Moving school: the deadlines are earlier",s:"When a child with an EHCP is moving between phases, the council has fixed deadlines to name the new school.",
+ rights:["The plan must be reviewed and amended to name the new school or setting in good time.",
+  "You can ask for a particular school, including a special school. The council must agree unless one of the narrow exceptions applies.",
+  "If the named school can't deliver what your child needs, you can appeal."],
+ dates:["15 February: the amended plan naming the new school must be issued, for moves into or between schools.",
+  "31 March: the deadline for young people moving from school to post-16 education.",
+  "2 months to appeal the amended plan."],
+ steps:["Visit schools early, ideally the autumn before.",
+  "Tell the council your preference in writing, with your reasons.",
+  "Check the school can actually deliver the support and the subjects in the plan.",
+  "If the deadline passes with no plan, write to the council straight away."],
+ orgs:["ipsea","sossen","sendiass"],learn:"rights"},
+
+r_cease:{t:"You can challenge a decision to end the plan",s:"The council can only stop a plan in limited situations, and you can appeal.",
+ rights:["A plan can only end if the council decides it's no longer needed, or the young person leaves education.",
+  "You have the right to appeal to the SEND Tribunal.",
+  "If you appeal, the plan stays in place until the appeal is decided."],
+ dates:["2 months from the decision letter, or 1 month from your mediation certificate if that's later."],
+ steps:["Ask for the council's reasons and evidence in writing.",
+  "Gather evidence that your child still needs the support, including what happens if it's removed.",
+  "Get a mediation certificate and register the appeal before the deadline."],
+ orgs:["ipsea","sossen","tribunal"],learn:"tribunal"},
+
+r_formal_ex:{t:"Your rights when your child is excluded",s:"Children with SEND are excluded far more often than other children. There are clear rules schools must follow.",
+ rights:["You can make representations to the governors.",
+  "Governors must meet to consider reinstatement for any permanent exclusion, and for suspensions over 15 school days in a term.",
+  "For a permanent exclusion you can ask for an independent review panel, and ask for a SEN expert to attend. You can ask for the expert whether or not the school accepts your child has SEN.",
+  "If the exclusion is linked to your child's disability, you can bring a discrimination claim to the SEND Tribunal."],
+ dates:["From day 6: suitable full-time education must be arranged. The school arranges it for suspensions, the council for permanent exclusions.",
+  "15 school days: for the governors' meeting, in most cases.",
+  "15 school days after the governors' decision: to ask for an independent review.",
+  "6 months: to bring a disability discrimination claim."],
+ steps:["Ask for the reasons in writing if you haven't had them.",
+  "Ask what adjustments and support were in place before the incident.",
+  "If your child has an EHCP, ask the council for an emergency review.",
+  "Get advice quickly. The deadlines are short."],
+ orgs:["coram","ipsea","discrim","sendiass"],learn:"rights"},
+
+r_informal_ex:{t:"Being sent home without a letter is unlawful",s:"Schools can't send a child home or ask you to keep them off unless it's a formal exclusion.",
+ rights:["Informal or 'off the books' exclusions are unlawful, even if the school calls it a cooling off period.",
+  "Every exclusion must be formal, in writing, with reasons, so you can challenge it.",
+  "If your child has an EHCP, they are still entitled to all the support in it."],
+ dates:["Keep a record of every time it happens, from today."],
+ steps:["Politely ask the school to confirm in writing whether it's a formal exclusion.",
+  "Keep a log: date, time, who called and what they said.",
+  "Ask what support and adjustments the school is putting in place.",
+  "If it continues, ask for an EHC needs assessment or, with an EHCP, an emergency review."],
+ orgs:["coram","ipsea","sendiass"],learn:"rights"},
+
+r_part_time:{t:"Part-time timetables have strict limits",s:"A part-time timetable should be rare, agreed with you, and short.",
+ rights:["Government guidance says part-time timetables should only be used in exceptional cases, with your agreement, for a limited time and with a plan to return to full-time.",
+  "Your child is entitled to full-time education.",
+  "If your child has an EHCP, the council must still secure all the support in it."],
+ dates:["There should be an end date and regular review dates. Ask for them in writing."],
+ steps:["Ask for the timetable, its end date and review dates in writing.",
+  "You don't have to agree. If you didn't agree, say so in writing.",
+  "Ask what is being done to get your child back to full-time.",
+  "If it's going on for weeks with no plan, ask for an EHC needs assessment or an emergency review."],
+ orgs:["ipsea","coram","sendiass"],learn:"rights"},
+
+r_attend_ehcp:{t:"The council must make sure your child still gets an education",s:"School based trauma is real. The duty to educate your child doesn't stop when they can't get through the door.",
+ rights:["The council must still secure the support in the plan (section 42, Children and Families Act 2014).",
+  "If school isn't working, the plan can be changed. That can include a different school, or education other than at school (EOTAS) if school is unsuitable (section 61).",
+  "The council also has a duty to arrange suitable education for children missing school because of illness or other reasons (section 19, Education Act 1996)."],
+ dates:["You can ask for an early review at any time."],
+ steps:["Ask the council for an emergency annual review.",
+  "Get evidence from your GP, CAMHS or other professionals about why your child can't attend.",
+  "Ask for the support your child needs now, in writing, while things are being sorted.",
+  "Think carefully before taking your child off the school roll. Elective home education can shift responsibility onto you. Get advice first."],
+ orgs:["squarepeg","nfis","ipsea","sendiass"],learn:"rights"},
+
+r_attend_no:{t:"Ask for help, and ask for an assessment",s:"School based trauma is often a sign of unmet needs. The law gives you routes to get them met.",
+ rights:["You can ask the council for an EHC needs assessment. Not attending school can be strong evidence of need.",
+  "The council has a duty to arrange suitable education for children who can't attend because of illness or other reasons (section 19, Education Act 1996). This often starts after 15 days of absence.",
+  "Schools should work with you, not just focus on attendance figures."],
+ dates:["6 weeks: the council's decision on whether to assess."],
+ steps:["Ask your GP for a letter about your child's health and why they can't attend.",
+  "Write to the council asking for an EHC needs assessment.",
+  "If your child has been off for a while, ask the council in writing what it is doing under section 19.",
+  "Keep a record of school contact and what support has been offered."],
+ orgs:["squarepeg","nfis","ipsea","sendiass"],learn:"assessment"},
+
+r_appeal_start:{t:"Starting an appeal",s:"The SEND Tribunal is independent of the council. It's free and you can represent yourself.",
+ rights:["You can appeal refusals to assess, refusals to issue a plan, the content of a plan, the school named, and decisions to end a plan.",
+  "The tribunal looks at the evidence fresh. It isn't bound by the council's view.",
+  "You can bring new evidence that the council didn't have."],
+ dates:["2 months from the decision letter, or 1 month from the mediation certificate if that's later.",
+  "Don't wait. You can carry on talking to the council after registering."],
+ steps:["Contact the mediation adviser named in the letter and get your certificate.",
+  "Fill in form SEND35. Say briefly what you're appealing and why.",
+  "Send it with the decision letter and the plan if there is one.",
+  "Get in touch with IPSEA or SOS!SEN for help with the next steps."],
+ orgs:["ipsea","sossen","tribunal"],learn:"tribunal"},
+
+r_appeal_prep:{t:"Preparing for your hearing",s:"Most of the work happens before the hearing. Being organised matters more than being a lawyer.",
+ rights:["You can ask for the council's evidence and the working document, which shows each side's wording for the plan.",
+  "You can bring witnesses, including private experts.",
+  "Hearings are less formal than court. The panel will help you put your case."],
+ dates:["The tribunal will send you a timetable with deadlines for evidence. Follow it closely.",
+  "Late evidence can be refused, so ask for help early."],
+ steps:["Read the tribunal's timetable and diary every date.",
+  "Gather your evidence in one place, numbered.",
+  "Work through the working document line by line with your wording.",
+  "Write a short summary of what you want and why.",
+  "Book help from IPSEA's tribunal helpline or SOS!SEN."],
+ orgs:["ipsea","sossen","tribunal"],learn:"tribunal"},
+
+r_post16_ehcp:{t:"EHCPs can continue up to age 25",s:"A plan doesn't end just because your young person turns 16 or 18.",
+ rights:["An EHCP can continue up to 25 if the young person is still in education or training and still needs it.",
+  "From the end of the school year they turn 16, young people can make decisions and appeals in their own name, if they have capacity.",
+  "Plans should focus on preparing for adulthood: work, independent living, friendships and health."],
+ dates:["31 March: deadline to name the post-16 setting when moving on from school.",
+  "2 months to appeal the plan."],
+ steps:["Make sure the young person's own views are in the plan.",
+  "Check the outcomes are about adult life, not just school.",
+  "Ask which colleges or training routes can deliver what's in the plan.",
+  "If the council says the plan should end at 19, ask for its reasons. Age alone is not a reason."],
+ orgs:["ipsea","contact","sendiass"],learn:"rights"},
+
+r_post16_no:{t:"Young people over 16 can still ask for an assessment",s:"The rights in SEND law apply up to age 25 for young people in education or training.",
+ rights:["Young people aged 16 to 25 can ask for an EHC needs assessment themselves.",
+  "Colleges have the same duty as schools to use their best endeavours to support students with SEND.",
+  "Colleges must make reasonable adjustments under the Equality Act 2010."],
+ dates:["6 weeks: the council's decision on whether to assess.","20 weeks: to a final plan."],
+ steps:["Talk to the college's learning support team.",
+  "Ask the council for an assessment in writing.",
+  "Contact your local SENDIASS. Many have a service just for young people."],
+ orgs:["sendiass","ipsea","contact"],learn:"assessment"},
+
+r_discrim:{t:"Disability discrimination at school",s:"Many children with SEND are also disabled under the Equality Act 2010. That gives them extra protection.",
+ rights:["Schools must not treat a disabled child less favourably because of their disability.",
+  "Schools must make reasonable adjustments to avoid disadvantaging disabled pupils. That includes adjusting policies like behaviour rules.",
+  "You can bring a claim to the SEND Tribunal against maintained schools, academies and independent schools."],
+ dates:["6 months from the discrimination to bring a claim."],
+ steps:["Write down what happened, when, and how it was linked to your child's disability.",
+  "Raise it with the school in writing first, using its complaints process.",
+  "Ask what adjustments were considered.",
+  "Get advice before the 6 month deadline."],
+ orgs:["discrim","ipsea","coram","sendiass"],learn:"rights"},
+
+r_basics:{t:"Start with the basics",s:"Five rights do most of the work. Knowing them puts you on an equal footing with the professionals.",
+ rights:["You can ask for an EHC needs assessment yourself.",
+  "The council has 6 weeks to decide and 20 weeks to issue a plan.",
+  "What's written in an EHCP must be delivered. It's a legal duty.",
+  "You can ask for the school you believe your child needs.",
+  "If the council gets it wrong, you can appeal to an independent tribunal."],
+ dates:[],
+ steps:["Go through our short slideshow: Your legal rights in 5 minutes.",
+  "Sign up for a free webinar.",
+  "Bookmark this page for when you need it."],
+ orgs:["ipsea","snj","join"],learn:"rights"},
+
+r_talk:{t:"People you can talk to",s:"You don't have to work this out alone. These services are free.",
+ rights:["Every council must fund an independent SEND information, advice and support service (SENDIASS)."],
+ dates:[],
+ steps:["Call your local SENDIASS. They can explain the process and often come to meetings with you.",
+  "For legal questions, book IPSEA's advice line or call SOS!SEN.",
+  "Join other parents locally. Families who've been through it are often the best guides."],
+ orgs:["sendiass","ipsea","sossen","contact","join"],learn:"rights"},
+
+r_health:{t:"When health or social care support isn't happening",s:"EHCPs cover health and care as well as education. Different bodies are responsible for each part.",
+ rights:["Health provision in Section G must be arranged by the NHS body responsible (usually the Integrated Care Board).",
+  "Social care needs should be assessed. Children's social care has duties to disabled children.",
+  "If you appeal the education parts of a plan, the tribunal can also make recommendations on health and social care."],
+ dates:[],
+ steps:["Write to the health body or children's social care, naming what's missing from the plan.",
+  "Use the NHS or council complaints process if nothing changes.",
+  "Ask Contact for advice on social care and benefits."],
+ orgs:["contact","ipsea","lgsco"],learn:"rights"},
+
+r_complain:{t:"Complaining about the council",s:"A complaint won't change a decision you can appeal, but it can fix delays, poor communication and missed support.",
+ rights:["Councils must have a formal complaints process.",
+  "After that, the Local Government and Social Care Ombudsman can investigate. It's free.",
+  "The Ombudsman can recommend a remedy, including payment for missed education."],
+ dates:["Usually 12 months to complain to the Ombudsman from when you became aware of the problem."],
+ steps:["Make a formal complaint in writing. Say what went wrong, when, and what you want done.",
+  "Keep copies of everything.",
+  "If you're unhappy with the final response, go to the Ombudsman.",
+  "If the issue is a decision you can appeal, appeal it. Don't rely on a complaint."],
+ orgs:["lgsco","sendiass","ipsea"],learn:"rights"}
+};
+
+var LEARN = {
+  rights:["Your legal rights in 5 minutes","/learn#rights"],
+  assessment:["Asking for an EHC needs assessment","/learn#assessment"],
+  tribunal:["Appealing to the SEND Tribunal","/learn#tribunal"]
+};
+
+var app = document.getElementById("app");
+var trail = [];
+
+function el(tag, attrs, html){ var e=document.createElement(tag); if(attrs) for(var k in attrs) e.setAttribute(k,attrs[k]); if(html!=null) e.innerHTML=html; return e; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+function showQ(id, push){
+  if(push!==false) trail.push(id);
+  var q = Q[id];
+  app.innerHTML = "";
+  var p = el("div",{class:"progress","aria-hidden":"true"});
+  for(var i=0;i<3;i++){ var s=el("span"); if(i<trail.length) s.className="on"; p.appendChild(s); }
+  app.appendChild(p);
+  var h = el("h2",{class:"q",tabindex:"-1"},esc(q.q)); app.appendChild(h);
+  if(q.hint) app.appendChild(el("p",{class:"qhint"},esc(q.hint)));
+  var ul = el("ul",{class:"opts"});
+  q.opts.forEach(function(o){
+    var li = el("li"); var b = el("button",{class:"opt",type:"button"},"<strong>"+esc(o[0])+"</strong>"+(o[1]?"<span>"+esc(o[1])+"</span>":""));
+    b.addEventListener("click",function(){ go(o[2]); });
+    li.appendChild(b); ul.appendChild(li);
+  });
+  app.appendChild(ul);
+  if(trail.length>1){ var bk=el("button",{class:"back",type:"button"},"&larr; Back"); bk.addEventListener("click",back); app.appendChild(bk); }
+  if(history.replaceState) history.replaceState(null,"",location.pathname);
+  if(push!==false) h.focus();
+}
+
+function go(id){ if(Q[id]) showQ(id); else showR(id); }
+
+function back(){ trail.pop(); var prev=trail.pop()||"start"; showQ(prev); }
+
+function list(items, ordered){ return "<"+(ordered?"ol":"ul")+">"+items.map(function(i){return "<li>"+esc(i)+"</li>";}).join("")+"</"+(ordered?"ol":"ul")+">"; }
+
+function showR(id){
+  var r = R[id]; if(!r){ showQ("start"); return; }
+  app.innerHTML = "";
+  var w = el("article",{class:"result"});
+  var h = el("h2",{tabindex:"-1"},esc(r.t)); w.appendChild(h);
+  w.appendChild(el("p",{class:"sum"},esc(r.s)));
+  w.appendChild(el("section",{class:"block"},"<h3>Where you stand</h3>"+list(r.rights)));
+  if(r.dates.length) w.appendChild(el("section",{class:"block dates"},"<h3>Deadlines that matter</h3>"+list(r.dates)));
+  w.appendChild(el("section",{class:"block steps"},"<h3>What to do next</h3>"+list(r.steps,true)));
+  var orgs = el("section",{class:"block"},"<h3>Who can help, for free</h3>");
+  var g = el("div",{class:"orgs"});
+  r.orgs.forEach(function(k){ var o=ORGS[k]; var ext=o.url.charAt(0)!=="/"; g.appendChild(el("a",ext?{class:"org",href:o.url,target:"_blank",rel:"noopener"}:{class:"org",href:o.url},"<strong>"+esc(o.name)+"</strong><span>"+esc(o.what)+"</span>")); });
+  orgs.appendChild(g); w.appendChild(orgs);
+  if(r.learn && LEARN[r.learn]) w.appendChild(el("section",{class:"block steps"},"<h3>Learn more</h3><p style=\"margin:0\">Watch the short slideshow: <a href=\""+LEARN[r.learn][1]+"\" style=\"color:var(--plum-text);font-weight:700\">"+esc(LEARN[r.learn][0])+"</a>. Or <a href=\"/webinars\" style=\"color:var(--plum-text);font-weight:700\">join a free webinar</a>.</p>"));
+  var t = el("div",{class:"tools"});
+  var copy = el("button",{type:"button",class:"primary"},"Copy link to this page");
+  copy.addEventListener("click",function(){ var u=location.origin+location.pathname+"#"+id; if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){copy.textContent="Link copied";});} else { prompt("Copy this link",u); } });
+  var pr = el("button",{type:"button"},"Print or save as PDF"); pr.addEventListener("click",function(){ window.print(); });
+  var again = el("button",{type:"button"},"Start again"); again.addEventListener("click",function(){ trail=[]; showQ("start"); });
+  t.appendChild(copy); t.appendChild(pr); t.appendChild(again);
+  w.appendChild(t);
+  if(trail.length){ var bk=el("button",{class:"back",type:"button"},"&larr; Back"); bk.addEventListener("click",function(){ var last=trail.pop(); showQ(last); }); w.appendChild(bk); }
+  app.appendChild(w);
+  if(history.replaceState) history.replaceState(null,"","#"+id);
+  h.focus();
+  if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:"/help/"+id,title:r.t,event:true});
+}
+
+var start = location.hash.replace("#","");
+if(R[start]) showR(start); else showQ("start", true);
+window.addEventListener("hashchange",function(){ var h=location.hash.replace("#",""); if(R[h]) { trail=[]; showR(h); } });
+})();
+</script>
+<script data-goatcounter="https://sendrights.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
