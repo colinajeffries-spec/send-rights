@@ -48,6 +48,8 @@
 .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .tools button,.tools a{font:inherit;font-weight:700;border-radius:10px;padding:10px 16px;border:2px solid var(--plum);background:transparent;color:var(--plum-text);cursor:pointer;text-decoration:none}
 .tools .primary{background:var(--plum);color:#fff}
+.askbtn{display:inline-block;background:var(--plum);color:#fff;font-weight:700;padding:12px 18px;border-radius:10px;text-decoration:none}
+.askbtn:hover{background:#2F1749}
 .note{font-size:.95rem;color:var(--muted);margin-top:24px}
 @media print{.site-head,.tools,.back,.progress,.site-foot,.bars{display:none!important}.block{break-inside:avoid}}
 </style>
@@ -471,6 +473,8 @@ var LEARN = {
 
 var app = document.getElementById("app");
 var trail = [];
+var answers = [];
+var ASK_EMAIL = "sendrights@outlook.com";
 
 function el(tag, attrs, html){ var e=document.createElement(tag); if(attrs) for(var k in attrs) e.setAttribute(k,attrs[k]); if(html!=null) e.innerHTML=html; return e; }
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
@@ -487,7 +491,7 @@ function showQ(id, push){
   var ul = el("ul",{class:"opts"});
   q.opts.forEach(function(o){
     var li = el("li"); var b = el("button",{class:"opt",type:"button"},"<strong>"+esc(o[0])+"</strong>"+(o[1]?"<span>"+esc(o[1])+"</span>":""));
-    b.addEventListener("click",function(){ go(o[2]); });
+    b.addEventListener("click",function(){ answers.length = trail.length-1; answers.push({q:q.q,a:o[0]}); go(o[2]); });
     li.appendChild(b); ul.appendChild(li);
   });
   app.appendChild(ul);
@@ -516,11 +520,19 @@ function showR(id){
   r.orgs.forEach(function(k){ var o=ORGS[k]; var ext=o.url.charAt(0)!=="/"; g.appendChild(el("a",ext?{class:"org",href:o.url,target:"_blank",rel:"noopener"}:{class:"org",href:o.url},"<strong>"+esc(o.name)+"</strong><span>"+esc(o.what)+"</span>")); });
   orgs.appendChild(g); w.appendChild(orgs);
   if(r.learn && LEARN[r.learn]) w.appendChild(el("section",{class:"block steps"},"<h3>Learn more</h3><p style=\"margin:0\">Watch the short slideshow: <a href=\""+LEARN[r.learn][1]+"\" style=\"color:var(--plum-text);font-weight:700\">"+esc(LEARN[r.learn][0])+"</a>. Or <a href=\"/webinars\" style=\"color:var(--plum-text);font-weight:700\">join a free webinar</a>.</p>"));
+  var askBody = "Hi,\n\nI used the help finder on sendrights.co.uk and I have a question.\n\n";
+  var path = answers.slice(0, trail.length);
+  if(path.length){ askBody += "My answers:\n" + path.map(function(x){ return "- " + x.q + " " + x.a; }).join("\n") + "\n\n"; }
+  askBody += "The page I got: " + r.t + "\n\nMy question:\n\n\nMy first name:\nMy area (town or council):\n";
+  var askHref = "mailto:" + ASK_EMAIL + "?subject=" + encodeURIComponent("Question from the help finder: " + r.t) + "&body=" + encodeURIComponent(askBody);
+  var ask = el("section",{class:"block dates"},"<h3>Still have a question?</h3><p style=\"margin:0 0 12px\">Email us. The answers you gave are added to the email for you, so you only need to type your question. We're parents who have been through it, not solicitors, so we can't advise on your case, but we'll point you in the right direction.</p><a class=\"askbtn\" href=\""+askHref+"\">Email us your question</a><p style=\"margin:10px 0 0;font-size:.95rem;color:var(--muted)\">Or write to <strong>"+ASK_EMAIL+"</strong>.</p>");
+  ask.querySelector("a").addEventListener("click",function(){ if(window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:"help-question-email/"+id,event:true}); });
+  w.appendChild(ask);
   var t = el("div",{class:"tools"});
   var copy = el("button",{type:"button",class:"primary"},"Copy link to this page");
   copy.addEventListener("click",function(){ var u=location.origin+location.pathname+"#"+id; if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){copy.textContent="Link copied";});} else { prompt("Copy this link",u); } });
   var pr = el("button",{type:"button"},"Print or save as PDF"); pr.addEventListener("click",function(){ window.print(); });
-  var again = el("button",{type:"button"},"Start again"); again.addEventListener("click",function(){ trail=[]; showQ("start"); });
+  var again = el("button",{type:"button"},"Start again"); again.addEventListener("click",function(){ trail=[]; answers=[]; showQ("start"); });
   t.appendChild(copy); t.appendChild(pr); t.appendChild(again);
   w.appendChild(t);
   if(trail.length){ var bk=el("button",{class:"back",type:"button"},"&larr; Back"); bk.addEventListener("click",function(){ var last=trail.pop(); showQ(last); }); w.appendChild(bk); }
@@ -532,7 +544,7 @@ function showR(id){
 
 var start = location.hash.replace("#","");
 if(R[start]) showR(start); else showQ("start", true);
-window.addEventListener("hashchange",function(){ var h=location.hash.replace("#",""); if(R[h]) { trail=[]; showR(h); } });
+window.addEventListener("hashchange",function(){ var h=location.hash.replace("#",""); if(R[h]) { trail=[]; answers=[]; showR(h); } });
 })();
 </script>
 <script data-goatcounter="https://sendrights.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
