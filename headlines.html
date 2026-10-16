@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Behind the headlines | sendrights.co.uk</title>
+<meta name="description" content="What the news says about SEND reform, and what it actually means for your child. Plain English, one tap at a time.">
+<meta property="og:title" content="Behind the headlines">
+<meta property="og:description" content="What the news says about SEND reform, and what it actually means for your child.">
+<meta property="og:url" content="https://sendrights.co.uk/headlines">
+<meta property="og:image" content="https://sendrights.co.uk/og-learn.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sendrights.co.uk/og-learn.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+:root{--teal-soft:#E6F5F1;--yellow-soft:#FFF6DB;--t2line:#CFE9E2;--t3line:#F1DFA6}
+@media (prefers-color-scheme:dark){:root{--teal-soft:#1D2E2C;--yellow-soft:#2E2818;--t2line:#2C4A44;--t3line:#4A3F22}}
+.intro{color:var(--muted);font-size:1.1rem;margin:14px 0 6px;max-width:34em}
+.checked{color:var(--muted);font-size:.95rem;margin:0 0 22px}
+.how{background:var(--tint);border-left:8px solid var(--teal);border-radius:0 12px 12px 0;padding:16px 18px;margin:0 0 8px}
+.how h2{font-size:1.15rem;margin:0 0 6px;color:var(--plum-text)}
+.how ol{margin:0;padding-left:22px}
+.how li{margin:4px 0}
+.controls{display:flex;justify-content:flex-end;margin:18px 0 12px}
+.controls button{font:inherit;font-size:1rem;font-weight:700;background:transparent;color:var(--plum-text);border:2px solid var(--plum-text);border-radius:999px;padding:8px 18px;cursor:pointer}
+.controls button:hover{background:var(--plum);border-color:var(--plum);color:#fff}
+article.hl{background:var(--card);border:2px solid var(--line);border-radius:14px;margin:0 0 18px;overflow:hidden}
+article.hl.start{border-color:var(--teal)}
+.hl-head{padding:18px 18px 4px}
+.num{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.start .num{color:var(--teal-text)}
+.says{font-size:.85rem;font-weight:700;color:var(--muted);margin:0}
+.hl h3{font-size:clamp(1.25rem,4.6vw,1.55rem);line-height:1.2;color:var(--plum-text);margin:2px 0 14px}
+details{margin:0}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:22px;line-height:1}
+details[open]>summary::after{content:"\2212"}
+summary:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+details.t1>summary{background:var(--teal);color:#1E1A2B;padding:14px 18px;font-size:1.05rem}
+details.t1>summary::after{background:rgba(255,255,255,.6);color:#1E1A2B}
+details.t1>.body{padding:16px 18px 18px;background:var(--teal-soft)}
+.nutshell{font-size:1.15rem;margin:0 0 16px}
+details.t2{background:var(--card);border-radius:12px;border:1px solid var(--t2line)}
+details.t2>summary{padding:12px 16px;color:var(--plum-text)}
+details.t2>summary::after{background:var(--yellow);color:#412165}
+details.t2>.body{padding:0 16px 16px}
+details.t3{background:var(--yellow-soft);border-radius:10px;margin-top:14px;border:1px solid var(--t3line)}
+details.t3>summary{padding:11px 14px;color:var(--plum-text);font-size:.98rem}
+details.t3>summary::after{background:var(--plum);color:#fff;font-size:20px}
+details.t3>.body{padding:0 14px 14px;font-size:1rem}
+.body p{margin:0 0 12px}
+.body p:last-child{margin-bottom:0}
+.body ul{margin:0 0 12px;padding-left:22px}
+.body li{margin:4px 0}
+.do{background:var(--card);border-left:4px solid var(--teal);padding:10px 12px;border-radius:6px;margin:12px 0}
+.do strong{color:var(--plum-text)}
+.src{font-size:.85rem;color:var(--muted);margin-top:12px}
+.src a{color:var(--muted)}
+.next{margin-top:34px;padding:20px 22px;border-left:8px solid var(--yellow);background:var(--tint);border-radius:0 12px 12px 0}
+.next h2{margin:0 0 6px;font-size:1.3rem}
+.next p{margin:0 0 14px}
+.btn{display:inline-block;background:var(--plum);color:#fff;font-weight:700;padding:12px 20px;border-radius:12px;text-decoration:none;margin:0 8px 8px 0}
+.btn.alt{background:transparent;color:var(--plum-text);border:2px solid var(--plum-text)}
+.note{color:var(--muted);font-size:.95rem;margin-top:24px}
+.note a{color:var(--plum-text);font-weight:700}
+@media print{details>.body{display:block!important}summary::after,.controls,.site-head nav{display:none}}
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"></div>
+<header class="site-head"><a class="brand" href="/">sendrights.co.uk</a><nav><a href="/help">Get help</a><a href="/learn">Learn</a><a href="/headlines" aria-current="page">Headlines</a><a href="/webinars">Webinars</a><a href="/mp">Email MP</a><a href="/join">Join</a></nav></header>
+<main>
+  <h1 class="page-title">Behind the headlines</h1>
+  <p class="intro">What the news says about SEND reform. And what it actually means for your child. No jargon. Tap a headline and go as deep as you want.</p>
+  <p class="checked">Last checked: 16 October 2026</p>
+
+  <section class="how">
+    <h2>How this page works</h2>
+    <ol>
+      <li><strong>What this headline really means</strong> gives you the short version.</li>
+      <li><strong>Read more</strong> explains why it matters.</li>
+      <li><strong>The full detail</strong> has the figures, the law and where we got it from.</li>
+    </ol>
+  </section>
+
+  <div class="controls">
+    <button type="button" id="toggleAll" aria-pressed="false">Open everything</button>
+  </div>
+
+  <!-- 1 -->
+  <article class="hl start">
+    <div class="hl-head">
+      <span class="num">Start here</span>
+      <p class="says">You might have read:</p>
+      <h3>"A new SEND system is coming"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">None of it is law yet. Your child's rights today are exactly the same as they were.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>The government has published plans. Plans are not law. To change your child's rights, Parliament has to pass a new Act first.</p>
+            <p>So if a school or council tells you support has changed "because of the reforms", that is not correct. Ask them to put it in writing and tell you which law they are relying on.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>The plans are in the Schools White Paper, "Every Child Achieving and Thriving", published on 23 February 2026. The consultation on it closed on 18 May 2026.</p>
+                <p>The King's Speech on 13 May 2026 announced an "Education for All Bill" to bring in the changes. Most of the changes are expected from 2029 or 2030.</p>
+                <p>Until then, the Children and Families Act 2014 still applies in full. That means today:</p>
+                <ul>
+                  <li>You can ask your council for an EHC needs assessment. It has 6 weeks to decide.</li>
+                  <li>A final plan should be issued within 20 weeks.</li>
+                  <li>The council must deliver what is in the plan.</li>
+                  <li>You can appeal to an independent tribunal if you disagree.</li>
+                </ul>
+                <div class="do"><strong>What you can do:</strong> use your rights now. IPSEA and SOS!SEN both give free advice, and IPSEA has template letters.</div>
+                <p class="src">Sources: <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10550">House of Commons Library</a> · <a href="https://feweek.co.uk/education-for-all-send-reform-bill-confirmed-in-kings-speech-2026/">FE Week</a> · <a href="https://contact.org.uk/about-contact/news-and-views/brief-overview-of-the-schools-white-paper-in-england/">Contact</a> · <a href="https://www.ipsea.org.uk/">IPSEA</a> · <a href="https://www.sossen.org.uk/">SOS!SEN</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 2 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 2</span>
+      <p class="says">You might have read:</p>
+      <h3>"Government writes off 90% of councils' SEND debt"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">The government will pay off most of what councils overspent on SEND. But the money comes with strings attached.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Councils don't get the money automatically. They have to write a "local SEND reform plan", and the government has to approve it.</p>
+            <p>That plan commits the council to the government's reforms. The same reforms that would weaken families' legal rights.</p>
+            <p>So the write-off works like a reward for signing up. A council that won't sign up stays in debt.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>The write-off covers 90% of councils' high needs deficits built up to the end of March 2026. In total that is around £5 billion. It is paid as a "high needs stability grant".</p>
+                <p>Councils still have to find the other 10% themselves. For Hampshire alone, that is more than £35 million.</p>
+                <p>One critic warned the local plans risk becoming a national version of the "safety valve" scheme. Under that scheme, some councils got bailout money in exchange for cutting SEND costs.</p>
+                <p>The debt didn't come from waste. It built up because the cost of supporting children with high needs was more than the money councils were given.</p>
+                <div class="do"><strong>What you can do:</strong> ask your local councillors what your council's local SEND reform plan commits to, and whether families were consulted on it.</div>
+                <p class="src">Sources: <a href="https://schoolsweek.co.uk/?p=241478">Schools Week</a> · <a href="https://schoolsweek.co.uk/council-wants-safety-valve-cash-back-in-dfe-deficit-write-off/">Schools Week (safety valve)</a> · <a href="https://www.liphookherald.com/news/politics/hampshire-ps354m-send-deficit-to-be-cut-under-government-bailout-878801">Liphook Herald (Hampshire)</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 3 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 3</span>
+      <p class="says">You might have read:</p>
+      <h3>"£3.4 billion for SEND in mainstream schools"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">It sounds huge. But it is spread over three years and across every school in England. And none of it is promised to your child.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>The money is split into two pots. One goes straight to schools for things like small group help. The other pays for a bank of specialists, like speech and language therapists, that schools can call on.</p>
+            <p>Both are good ideas. But neither is tied to a named child. A school decides how to spend it.</p>
+            <p>An EHCP is different. It says what your child gets, and the council has to deliver it.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <ul>
+                  <li><strong>£1.6 billion</strong> over three years: the Inclusive Mainstream Fund, paid to early years settings, schools and colleges.</li>
+                  <li><strong>£1.8 billion</strong> over three years: "Experts at Hand", a local bank of specialists schools can use, whether or not a child has an EHCP.</li>
+                </ul>
+                <p>This is real money, and it's fair to say so. But it covers every mainstream nursery, school and college in England, over three years.</p>
+                <p>The big question is where the specialists will come from. Money can't buy a speech therapist who doesn't exist.</p>
+                <p>Under section 42 of the Children and Families Act 2014, the council must secure the support written in an EHCP. A school fund carries no duty like that.</p>
+                <p class="src">Sources: <a href="https://www.educationbusinessuk.net/node/24924">Education Business</a> · <a href="https://chamindajayanetti.substack.com/p/send-reform-a-tightrope-without-a">Chaminda Jayanetti</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 4 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 4</span>
+      <p class="says">You might have read:</p>
+      <h3>"Every child with SEND will get a support plan"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">The plan is written by the school. An EHCP is the law. A school plan is a promise.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>The new plans are called Individual Support Plans, or ISPs. Schools would have a legal duty to write one for every child with SEND.</p>
+            <p>But a duty to write a plan is not a duty to deliver it. If the school doesn't do what the ISP says, you couldn't take it to a judge.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>ISPs would cover two levels of support, called "Targeted" and "Targeted Plus". They would replace today's SEN support.</p>
+                <p>To be fair: children on SEN support today often have no written plan at all. For them, an ISP could be a step forward.</p>
+                <p>The worry is the children who would qualify for an EHCP today, but would get an ISP instead. They would go from a legal right to a promise.</p>
+                <p>The ISP proposals don't give families a route to tribunal. Even some supporters of the reforms have called for tribunal rights to cover ISP disputes.</p>
+                <p class="src">Sources: <a href="https://contact.org.uk/about-contact/news-and-views/brief-overview-of-the-schools-white-paper-in-england/">Contact</a> · <a href="https://www.libdemvoice.org/labours-send-white-paper-gets-the-destination-right-and-the-journey-wrong-79193.html">Lib Dem Voice</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 5 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 5</span>
+      <p class="says">You might have read:</p>
+      <h3>"EHCPs are staying"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">Only for children with "complex needs". Nobody has said what that means.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>The white paper doesn't define complex needs. But that phrase decides who keeps a legal right and who gets a school promise.</p>
+            <p>The children most at risk are the ones who don't look complex in a classroom. The child who masks and seems fine. The child whose needs come out as behaviour. The child with anxiety who freezes or refuses.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>Under the plans, only children who need a "Specialist Provision Package" would have an EHCP.</p>
+                <p>More than 600,000 children in England have an EHCP today. Without a definition, families can't tell which of them would still qualify.</p>
+                <p>If the definition isn't written into the Act itself, it could be set or changed later with much less scrutiny from Parliament.</p>
+                <div class="do"><strong>What you can do:</strong> ask your MP one simple question. "What is the legal definition of complex needs, and where will it be written?"</div>
+                <p class="src">Sources: <a href="https://www.healthwatchbrightonandhove.co.uk/news/2026-05-13/schools-white-paper-send-reforms">Healthwatch Brighton and Hove</a> · <a href="https://contact.org.uk/about-contact/news-and-views/brief-overview-of-the-schools-white-paper-in-england/">Contact</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 6 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 6</span>
+      <p class="says">You might have read:</p>
+      <h3>"The tribunal stays as a safety net"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">It stays. But it loses its power over the thing families fight about most: which school.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Today, if a judge agrees with you, they can order the council to name the school your child needs.</p>
+            <p>Under the plans, the tribunal couldn't name a school. It could only ask the council to look at its decision again. Then the council decides again.</p>
+            <p>That's the council marking its own homework.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>Section 39 of the Children and Families Act 2014 says the council must name the school you ask for, unless:</p>
+                <ul>
+                  <li>it isn't suitable for your child, or</li>
+                  <li>it would affect other children's education, or</li>
+                  <li>it would be an inefficient use of resources.</li>
+                </ul>
+                <p>Around 25,000 SEND appeals were registered in 2024/25. Even in appeals about which school, parents still won more than half the time. Under the plans, those wins would become a request to think again.</p>
+                <p class="src">Sources: <a href="https://www.wardhadaway.com/insights/updates/the-biggest-shift-in-send-we-have-seen-in-a-decade-exploring-the-schools-white-paper-2026/">Ward Hadaway</a> · <a href="https://www.brownejacobson.com/insights/send-tribunal-data-released">Browne Jacobson</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 7 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 7</span>
+      <p class="says">You might have read:</p>
+      <h3>"A triple lock means no child loses support already in place"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">It protects support that's already there, for now. It doesn't protect the children who come next.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Children with an EHCP in a mainstream school wouldn't be moved onto the new plans until at least 2030. That's a delay, not a guarantee.</p>
+            <p>And it does nothing for a younger brother or sister, or a child who gets diagnosed next year. They would go straight into the new system.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>The "triple lock" of transitional protections was announced with the Education for All Bill in the King's Speech in May 2026.</p>
+                <p>When the Schools Minister was asked whether children could lose their plans when they are reassessed, she didn't give a direct answer.</p>
+                <p>Protections are only as strong as the words in the final law. Promises in a speech can't be enforced.</p>
+                <div class="do"><strong>What you can do:</strong> ask your MP whether the protections will be written into the Act, and what happens at a child's first review after 2030.</div>
+                <p class="src">Sources: <a href="https://www.localgovernmentlawyer.co.uk/education-law/394-education-news/100477-government-says-education-for-all-bill-will-ensure-smooth-transition-to-new-send-support-system-via-triple-lock-of-protections">Local Government Lawyer</a> · <a href="https://www.healthwatchbrightonandhove.co.uk/news/2026-05-13/schools-white-paper-send-reforms">Healthwatch Brighton and Hove</a> · <a href="https://www.libdemvoice.org/labours-send-white-paper-gets-the-destination-right-and-the-journey-wrong-79193.html">Lib Dem Voice</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 8 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 8</span>
+      <p class="says">You might have read:</p>
+      <h3>"Reforms will take the conflict out of the system"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">The conflict happens because councils say no when the law says yes. Families win almost every appeal.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>When a family goes to tribunal and a judge looks at the evidence, the family nearly always wins. That isn't parents being difficult. It's councils getting decisions wrong.</p>
+            <p>Taking away appeal rights doesn't fix wrong decisions. It's like cutting complaints by closing the complaints desk.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>In 2022-23, parents won 98.3% of appeals that reached a hearing. Of 7,968 hearings, only 136 backed the council's decision.</p>
+                <p>Appeals keep rising. Around 25,000 were registered in 2024/25, up 18% on the year before.</p>
+                <p>The real fix is lawful decisions the first time, with enough money and staff behind them.</p>
+                <p class="src">Sources: <a href="https://schoolsweek.co.uk/?p=195881">Schools Week</a> · <a href="https://www.brownejacobson.com/insights/send-tribunal-data-released">Browne Jacobson</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 9 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 9</span>
+      <p class="says">You might have read:</p>
+      <h3>"SEND tribunals are costing a fortune"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">They do cost a lot. Mostly because councils keep fighting cases they then lose.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Councils spend huge sums defending decisions that judges overturn. That money could have paid for the support in the first place.</p>
+            <p>Families don't pay a fee to appeal. What they pay is time, stress and months of their lives.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <ul>
+                  <li>Councils were estimated to have spent <strong>£153 million</strong> defending SEND appeals in 2023/24.</li>
+                  <li>Since the 2014 reforms, the estimate is <strong>£580 million</strong>.</li>
+                  <li>Appeals that councils lost cost taxpayers <strong>£60 million</strong> in 2021-22 alone.</li>
+                </ul>
+                <p>Cutting appeal rights would save some of that money. But only by stopping families challenging decisions that are wrong.</p>
+                <p class="src">Sources: <a href="https://www.birkettlong.co.uk/insights/education/2024-send-tribunal-data-published-showing-appeals-increased-55">Birkett Long</a> · <a href="https://contact.org.uk/?p=23211">Contact</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 10 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 10</span>
+      <p class="says">You might have read:</p>
+      <h3>"Standard support packages will mean faster help"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">A package is built around a label, not around your child.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Today, an EHCP has to be written around your child's actual needs. Under the plans, support would come from set packages that councils buy in.</p>
+            <p>Two autistic children can need completely different things. One needs weekly speech and language therapy. The other needs sensory breaks and a trusted adult. A package built for "autism" might fit neither.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>The SEND Code of Practice says the support in an EHCP must be detailed, specific and normally quantified. That's why plans can be enforced. You can see exactly what was promised.</p>
+                <p>The charity Contact has warned that the new packages remove the individual, tailored nature of plans.</p>
+                <p>Packages also tend to be built around getting a child through school, not getting them on. Bright children with SEND need the barriers removed, not a lower ceiling.</p>
+                <p>Faster help is good. But a plan you get quickly and can't enforce just means being told no faster.</p>
+                <p class="src">Sources: <a href="https://contact.org.uk/about-contact/news-and-views/brief-overview-of-the-schools-white-paper-in-england/">Contact</a> · <a href="https://www.gov.uk/government/publications/send-code-of-practice-0-to-25">SEND Code of Practice</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 11 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 11</span>
+      <p class="says">You might have read:</p>
+      <h3>"Mediation first will settle disputes sooner"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">Mediation can help. But a mediator can't make the council do anything.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Mediation is a meeting where someone independent helps you and the council try to agree. It only works if the council is willing to move.</p>
+            <p>Councils move because they know a judge is behind it. Weaken the judge and the council has less reason to agree.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>Mediation is already part of the system. Before most appeals, you have to contact a mediation adviser first. You can then choose whether to mediate. Appeals only about the school named are the exception.</p>
+                <p>The plans push mediation and school complaints processes harder, to cut the tribunal backlog. At the same time, the tribunal loses power over schools.</p>
+                <p>More talking with less power behind it isn't faster justice.</p>
+                <p class="src">Sources: <a href="https://www.wardhadaway.com/insights/updates/the-biggest-shift-in-send-we-have-seen-in-a-decade-exploring-the-schools-white-paper-2026/">Ward Hadaway</a> · <a href="https://www.ipsea.org.uk/">IPSEA</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 12 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 12</span>
+      <p class="says">You might have read:</p>
+      <h3>"SEND pupils do better in mainstream schools"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">That compares different groups of children. It tells you nothing about your child.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Children in special schools are often there because their needs couldn't be met in mainstream. So of course the groups get different results.</p>
+            <p>It's like saying people who aren't in hospital are healthier. True. But it doesn't mean you should close the hospital.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <p>The government's research says children with SEND in mainstream score around half a grade better at GCSE.</p>
+                <p>Nobody is against inclusion when it works. The fight is about choice. Today the law gives families a strong right to name the school that fits their child.</p>
+                <p>Mainstream inclusion also needs capacity. In one survey, 76% of school leaders expected a significant increase in workload under the plans.</p>
+                <p class="src">Sources: <a href="https://gkstrategy.com/wp-content/uploads/2026/03/GK-Strategy-SEND-Reforms.pdf">GK Strategy</a> · <a href="https://www.naidex.co.uk/businesswithoutbarriers/news-article-business-without-barriers/plans-for-send-bill-prompt-concerns-for-teacher-workload">Naidex (Browne Jacobson survey)</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <!-- 13 -->
+  <article class="hl">
+    <div class="hl-head">
+      <span class="num">Headline 13</span>
+      <p class="says">You might have read:</p>
+      <h3>"SEND costs are bankrupting councils"</h3>
+    </div>
+    <details class="t1">
+      <summary>What this headline really means</summary>
+      <div class="body">
+        <p class="nutshell">Costs have risen because more children's needs are being spotted, and funding hasn't kept up. Children aren't the problem.</p>
+        <details class="t2">
+          <summary>Read more</summary>
+          <div class="body">
+            <p>Councils really are under huge pressure. That's true and worth saying.</p>
+            <p>But a lot of the cost comes from the system failing early. When there's no suitable school nearby, councils pay for long taxi journeys and expensive placements further away.</p>
+            <p>Removing rights doesn't make a child's needs smaller. It just moves the cost onto families.</p>
+            <details class="t3">
+              <summary>The full detail</summary>
+              <div class="body">
+                <ul>
+                  <li>In one survey, 53% of councils said they couldn't set a balanced budget in 2026/27 if their SEND deficits went back on their books.</li>
+                  <li>Councils were projected to spend around <strong>£12 billion</strong> on SEND by 2026, up from about £4 billion a decade earlier.</li>
+                  <li>SEND school transport alone could cost <strong>£3.4 billion a year</strong> by 2030/31.</li>
+                </ul>
+                <p>Even the Local Government Association says it isn't right that a child has to travel a long way because there's no suitable school near home.</p>
+                <p class="src">Sources: <a href="https://schoolsweek.co.uk/?p=225750">Schools Week</a> · <a href="https://www.learningdisabilitytoday.co.uk/news/send-system-is-broken-new-landmark-report-confirms/">Learning Disability Today</a> · <a href="https://lb2.local.gov.uk/node/8282301">Local Government Association</a></p>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
+  </article>
+
+  <section class="next">
+    <h2>Seen enough?</h2>
+    <p>The law hasn't changed yet. That means there's still time to change what goes into it.</p>
+    <a class="btn" href="/mp">Email your MP</a><a class="btn alt" href="/join">Join a local team</a>
+  </section>
+
+  <p class="note">This is general information, not legal advice. Every figure links to where it came from. Spotted something out of date? Email <a href="mailto:sendrights@outlook.com">sendrights@outlook.com</a>.</p>
+</main>
+<footer class="site-foot"><a href="/">Home</a> · <a href="/help">Get help</a> · <a href="/learn">Learn your rights</a> · <a href="/join">Join a local team</a></footer>
+<script>
+(function(){
+  var btn=document.getElementById('toggleAll');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-pressed')!=='true';
+    document.querySelectorAll('details').forEach(function(d){d.open=open;});
+    btn.setAttribute('aria-pressed',open?'true':'false');
+    btn.textContent=open?'Close everything':'Open everything';
+  });
+})();
+</script>
+<script data-goatcounter="https://sendrights.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
