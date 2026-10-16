@@ -59,6 +59,10 @@ button.send:hover{background:#2F1749}
 .after{margin:14px 0 0;color:var(--muted);font-size:.98rem}
 .after a{color:var(--plum-text);font-weight:700}
 .copy{font:inherit;font-size:.9rem;font-weight:700;background:transparent;color:var(--plum-text);border:2px solid var(--plum-text);border-radius:999px;padding:3px 12px;margin-left:6px;cursor:pointer}
+.watch{margin:0 0 26px}
+.watch video{display:block;width:100%;aspect-ratio:16/9;background:#0B0C0D;border-radius:14px;border-top:8px solid var(--teal)}
+.watch p{color:var(--muted);font-size:.95rem;margin:8px 0 0}
+.watch a{color:var(--plum-text);font-weight:700}
 .sent{display:none;margin-top:16px;background:var(--card);border-left:6px solid var(--teal);border-radius:0 10px 10px 0;padding:12px 14px}
 </style>
 </head>
@@ -69,8 +73,16 @@ button.send:hover{background:#2F1749}
   <h1 class="page-title">For MPs and their teams</h1>
   <p class="intro">SEND reform will land in your inbox whether you follow it or not. This is a five minute briefing from parents across England: what we're worried about, what it means for your office, and how to meet us.</p>
 
+  <section class="watch" id="top" aria-label="Briefing video">
+    <video controls preload="metadata" playsinline poster="/mp-briefing-poster.jpg">
+      <source src="/mp-briefing.mp4" type="video/mp4">
+      Your browser can't play this video. <a href="/mp-briefing.mp4">Download it instead</a>.
+    </video>
+    <p>The SEND reforms in five minutes: what the law says now, what's proposed and why parents are worried. <a href="/mp-briefing.mp4" download>Download the video</a> to share with colleagues.</p>
+  </section>
+
   <nav class="jump" aria-label="On this page">
-    <a href="#concerns">Our concerns</a>
+    <a href="#top">Watch the briefing</a><a href="#concerns">Our concerns</a>
     <a href="#you">What it means for you</a>
     <a href="#ask">Questions to ask</a>
     <a class="go" href="#meet">Meet us</a>
@@ -94,7 +106,7 @@ button.send:hover{background:#2F1749}
     <p class="sub">This isn't only a question for the Department for Education. It changes what lands on your desk.</p>
     <ul class="cards">
       <li class="card y"><h3>More casework, fewer levers</h3><p>Today a parent who disagrees with the council can go to an independent tribunal. Take that route away and the next stop is your constituency office. You'd be getting the cases without the legal tools that currently resolve them.</p></li>
-      <li class="card y"><h3>Your constituents are watching</h3><p>Over 600,000 children in England have an EHCP, and many more get SEN support. Every constituency has families who will be affected, and their extended families, schools and support workers too. The petition and the debate showed how organised they are.</p></li>
+      <li class="card y"><h3>Your constituents are watching</h3><p>More than 700,000 children and young people in England have an EHC plan, and many more get SEN support. Every constituency has families who will be affected, and their extended families, schools and support workers too. More than 100,000 people signed the petition to protect these rights.</p></li>
       <li class="card y"><h3>Your council's plan is being written now</h3><p>Local SEND reform plans decide how the reforms play out in your area. You have standing to ask your council what its plan commits to, and whether parents were involved.</p></li>
       <li class="card y"><h3>The detail goes in the Bill</h3><p>The Education for All Bill will decide what's written into law and what's left to guidance. That's where the definition of complex needs and the "triple lock" protections either become enforceable or don't. Your vote shapes that.</p></li>
       <li class="card y"><h3>Ask what happens when it goes wrong</h3><p>When a school-written plan isn't delivered, a family will want to know who they can turn to. The honest answer under the current proposals is: their MP.</p></li>
