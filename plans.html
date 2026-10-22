@@ -187,6 +187,8 @@ var SITUATIONS = [
   topics:["specialist","transport","tribunal","ehcp","post16","out_of_school"]},
  {id:"independent", t:"My child is at an independent or non-maintained special school", s:"Or you are asking for one",
   topics:["specialist","tribunal","transport","money","ehcp"]},
+ {id:"eotas", t:"My child has an EHCP and an EOTAS (Section 61) package", s:"Education otherwise than in school, arranged by the council",
+  topics:["out_of_school","tribunal","ehcp","money","specialist","post16"]},
  {id:"no_ehcp", t:"My child has SEND but no EHCP", s:"On SEN support, waiting for an assessment, or still fighting for a plan",
   topics:["assessments","isp","mainstream","inclusion_bases","tribunal","staffing","health","out_of_school"]},
  {id:"early", t:"My child is under 5 or not in school yet", s:"Including children whose needs are just being noticed",
@@ -234,6 +236,14 @@ var NATIONAL = {
   ["Right now","Under current law an EHCP can run to age 25 while the young person is in education or training. That still applies."],
   ["What would change","After review, young people who do not need the full \"Specialist Provision Package\" would move to an Individual Support Plan from their college or provider."],
   ["Transport","The national proposals say little about transport, but some councils are reviewing post-16 transport locally. Check your council's policy each year."]]},
+ eotas:{h:"What the Government is proposing for your child", items:[
+  ["Right now","Nothing has changed. Section 61 of the Children and Families Act 2014 still applies, and you can still appeal about EOTAS to the tribunal. In 2026 the Upper Tribunal confirmed that section 61 can cover any part of a child's provision that would be inappropriate in school (AM and SP v Wokingham [2026] UKUT 327 (AAC))."],
+  ["Who could have EOTAS","The DfE consulted on EOTAS from 10 July to 18 September 2026. It proposes that only children assessed as needing a Specialist Provision Package and an EHCP could have EOTAS."],
+  ["Who runs it","Each child would be on the roll of a named school or college, usually a special school or alternative provision. That setting, or the council, would decide whether EOTAS is used."],
+  ["Appeals","The tribunal could still hear appeals about needs, the package and placement. It could NOT hear an appeal about whether EOTAS is used. Families would be offered an early review instead."],
+  ["If your child is already in EOTAS","Young people at secondary school or post-16 would keep their current EHCP and rights. Children in early years or primary would be reassessed at the end of primary, then move to a Specialist Provision Package or a transition arrangement overseen by an AP school."],
+  ["Quality and money","Standards for alternative provision could become compulsory, with approved provider lists. The consultation has no funding proposals."],
+  ["When","The consultation says from 2029/30, through the Education for All Bill. The DfE's page for parents says September 2030 at the earliest, and only if Parliament agrees. The Government's response is due this autumn."]]},
  not_send:{h:"Why this matters to your family too", items:[
   ["Your child's classroom","Around 1 in 5 pupils in England has SEND. Inclusion Bases, visiting specialists and new inclusion duties will be in most mainstream schools. The Government cites research that inclusion has neutral or slightly positive effects for other pupils, when it is done well."],
   ["Any child, any time","Needs can show up at any age, after an illness, an injury, or as school gets harder. If that happens to your child after 2029, most support would come through a school-written plan, not a legal one."],
@@ -306,8 +316,9 @@ function render(scroll){var r=$("result");if(!council||!sit){r.hidden=true;updat
  // do
  h+='<div class="block do"><h3>What you can do</h3><ul>';
  if(sit==="no_ehcp"||sit==="early")h+='<li>If you think your child needs more help, <a href="/help">ask for an EHC needs assessment</a>. A council target to reduce requests does not change your right to ask, or the legal test it must apply.</li>';
- if(sit==="ehcp_mainstream"||sit==="ehcp_special"||sit==="independent"||sit==="post16")h+='<li>Check that everything in your child\'s EHCP is being delivered, and keep records. If it isn\'t, the council has a legal duty to make sure it is. <a href="/help">Find out what to do</a>.</li>';
+ if(sit==="ehcp_mainstream"||sit==="ehcp_special"||sit==="independent"||sit==="post16"||sit==="eotas")h+='<li>Check that everything in your child\'s EHCP is being delivered, and keep records. If it isn\'t, the council has a legal duty to make sure it is. <a href="/help">Find out what to do</a>.</li>';
  h+='<li>'+(c.status==="published"?'Read the plan and ask your council questions about it.':'Ask '+esc(c.council)+' for its plan. Use the ready-made Freedom of Information request below.')+'</li>';
+ if(sit==="eotas")h+='<li>Keep a copy of your child\'s EHCP and the details of each part of the EOTAS package. If the council tries to end or change EOTAS before any new law, your full right of appeal still applies. <a href="https://www.specialneedsjungle.com/top-tips-eotas-ehcp-consultation-protect-rights-statutory-send-support/" target="_blank" rel="noopener">Special Needs Jungle has more on protecting EOTAS</a>.</li>';
  h+='<li><a href="/mp">Tell your MP</a> what these changes would mean for your family.</li>';
  h+='<li><a href="/join">Join a local team</a> so families in '+esc(c.council)+' can speak together.</li></ul>';
  h+='<details'+(c.status==="published"?'':' open')+'><summary>Freedom of Information request for '+esc(c.council)+'</summary><p style="margin-top:8px">Copy this and send it to the council\'s Freedom of Information email address, usually found on its website. Or send it through <a href="https://www.whatdotheyknow.com/" target="_blank" rel="noopener">WhatDoTheyKnow</a>, which publishes the reply so other families can see it. The council should reply within 20 working days.</p><textarea class="letter" id="letter" readonly></textarea><div class="btnrow"><button type="button" class="btn" id="copy">Copy the request</button><span class="copied" id="copied" hidden>Copied</span></div></details></div>';
